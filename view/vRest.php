@@ -12,8 +12,24 @@
             <input type="date" name="fechaNasa" id="fechaNasa" value="<?php print($_SESSION['fechaNasa']); ?>">
             <input type="submit" id="pedir" name="pedir" value="Pedir">
         </form>
-        <img src="<?php print($datosFoto['url']); ?>" alt="<?php print($datosFoto['url']); ?>">
+        <img id="fotoNasa" src="<?php print($datosFoto['url']); ?>" alt="<?php print($datosFoto['url']); ?>">
     </div>
     <div class="divRest"></div>
     <div class="divRest"></div>
 </main>
+<script>
+    document.getElementById("fechaNasa").addEventListener("change", () => {
+        mostrarImagen(document.getElementById("fotoNasa"), document.getElementById("fechaNasa").value)
+    });
+    
+    async function mostrarImagen(salida, fecha) {
+        let respuesta = await fetch("https://api.nasa.gov/planetary/apod?api_key=" + "G0efsc0nhZCxCJUliziDhKh5tUhrWKbHbPfB9oTa" + "&date=" + fecha);
+        
+        if (respuesta.ok) {
+            let json = await respuesta.json();
+            
+            salida.setAttribute("src", json.url);
+            salida.setAttribute("alt", json.title);
+        }
+    }
+</script>
