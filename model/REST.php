@@ -8,14 +8,14 @@
 
                 $archivo = json_decode($respuesta, true);
 
-                if (isset($archivo)) {
+                if (!is_null($archivo)) {
                     return new FotoNasa($archivo['url'], $archivo['title'], $archivo['explanation']);
                 } else {
                     return null;
                 }
             } catch (Exception $ex) {
+                $_SESSION['error'] = new ErrorApp($ex->getCode(), $ex->getMessage(), $ex->getFile(), $ex->getLine(), 'inicioPrivado');
                 $_SESSION['paginaEnCurso'] = 'error';
-                $_SESSION['error'] = new ErrorApp($ex->getCode(), $ex->getMessage(), $ex->getFile(), $ex->getLine(), $_SESSION['paginaEnCurso']);
 
                 header('Location:index.php');
                 exit();

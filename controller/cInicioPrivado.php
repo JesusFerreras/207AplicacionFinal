@@ -11,8 +11,8 @@
         exit();
     }
     
-    if (isset($_REQUEST['mtoDepartamento'])) {
-        $_SESSION['paginaEnCurso'] = 'wip';
+    if (isset($_REQUEST['mtoDepartamentos'])) {
+        $_SESSION['paginaEnCurso'] = 'mtoDepartamentos';
         header('Location: index.php');
         exit();
     }

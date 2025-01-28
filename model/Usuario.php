@@ -243,7 +243,7 @@
          * 
          * Devuelve un array asociativo con cada uno de los atributos del usuario
          * 
-         * @return  array  Datos del usuario
+         * @return  mixed[]  Datos del usuario
          */
         public function getArrayDatos() {
             return [

@@ -10,7 +10,7 @@
     <form id="navegacion" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
         <input type="submit" id="detalle" name="detalle" value="Detalle">
         <input type="submit" id="error" name="error" value="Error">
-        <input type="submit" id="mtoDepartamento" name="mtoDepartamento" value="Mantenimiento de Departamentos">
+        <input type="submit" id="mtoDepartamentos" name="mtoDepartamentos" value="Mantenimiento de Departamentos">
         <input type="submit" id="rest" name="rest" value="REST">
     </form>
     <div id="contenido">

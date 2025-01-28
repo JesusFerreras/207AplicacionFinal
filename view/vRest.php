@@ -12,24 +12,18 @@
             <input type="date" name="fechaNasa" id="fechaNasa" value="<?php print($_SESSION['fechaNasa']); ?>">
             <input type="submit" id="pedir" name="pedir" value="Pedir">
         </form>
-        <img id="fotoNasa" src="<?php print($datosFoto['url']); ?>" alt="<?php print($datosFoto['url']); ?>">
+        <img id="fotoNasa" src="<?php print($datosFoto['url']); ?>" alt="<?php print($datosFoto['titulo']); ?>">
+        <p><b>Título: </b><?php print($datosFoto['titulo']); ?></p>
+        <p><b>Descripción: </b><?php print($datosFoto['descripcion']); ?></p>
+        <p><b>Parámetros: </b><?php print($datosFoto['titulo']); ?></p>
     </div>
     <div class="divRest"></div>
     <div class="divRest"></div>
 </main>
 <script>
-    document.getElementById("fechaNasa").addEventListener("change", () => {
-        mostrarImagen(document.getElementById("fotoNasa"), document.getElementById("fechaNasa").value)
-    });
+    document.getElementById("pedir").style.display = "none";
     
-    async function mostrarImagen(salida, fecha) {
-        let respuesta = await fetch("https://api.nasa.gov/planetary/apod?api_key=" + "G0efsc0nhZCxCJUliziDhKh5tUhrWKbHbPfB9oTa" + "&date=" + fecha);
-        
-        if (respuesta.ok) {
-            let json = await respuesta.json();
-            
-            salida.setAttribute("src", json.url);
-            salida.setAttribute("alt", json.title);
-        }
-    }
+    document.getElementById("fechaNasa").addEventListener("focusout", () => {
+        document.getElementById("pedir").click();
+    });
 </script>

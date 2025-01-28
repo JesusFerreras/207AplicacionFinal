@@ -8,7 +8,7 @@
     if (!isset($_SESSION['fechaNasa'])) {
         $_SESSION['fechaNasa'] = (new DateTime('now'))->format('Y-m-d');
     } else {
-        if (isset($_REQUEST['fechaNasa'])) {
+        if (isset($_REQUEST['fechaNasa']) && (new DateTime('now') >= new DateTime($_REQUEST['fechaNasa']))) {
             $_SESSION['fechaNasa'] = $_REQUEST['fechaNasa'];
         }
     }
