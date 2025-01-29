@@ -1,4 +1,10 @@
 <?php
+    if (isset($_REQUEST['volver'])) {
+        $_SESSION['paginaEnCurso'] = 'inicioPrivado';
+        header('Location: index.php');
+        exit();
+    }
+    
     if (isset($_REQUEST['altaDepartamento'])) {
         $_SESSION['paginaEnCurso'] = 'wip';
         header('Location: index.php');

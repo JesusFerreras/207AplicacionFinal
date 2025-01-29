@@ -16,5 +16,18 @@
         <input type="submit" id="importarDepartamentos" name="importarDepartamentos" value="Importar departamentos">
     </form>
     <div id="contenido">
+        <form action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
+            <input type="text" id="descDepartamento" name="descDepartamento" value="Dar de alta un departamento">
+            <input type="submit" id="consultarModificarDepartamento" name="consultarModificarDepartamento" value="Modificar un departamento">
+        </form>
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Fecha de creación</th>
+                <th>Volumen de negocio</th>
+                <th>Fecha de baja</th>
+            </tr>
+        </table>
     </div>
 </main>
