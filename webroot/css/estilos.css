@@ -165,6 +165,8 @@ body {
                 }
         main > div#contenido {
             padding: 8px;
+            padding-right: 32px;
+            flex: 1;
         }
             main > div#contenido > table {
                 width: 100%;

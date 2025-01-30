@@ -1,4 +1,13 @@
 <?php
+    /**
+     * Clase Departamento
+     * 
+     * Clase que representa un departamento y sus datos
+     * 
+     * @author  Jesús Ferreras
+     * 
+     * @category 
+     */
     class Departamento {
         /** @var  string  $codDepartamento  Código del departamento */
         private $codDepartamento;
@@ -16,6 +25,17 @@
         private $fechaBajaDepartamento = null;
         
         
+        /**
+         * Función constructora
+         * 
+         * Construye un nuevo objeto de la clase Departamento a partir de los datos introducidos
+         * 
+         * @param  string    $codDepartamento            Código del departamento
+         * @param  string    $descDepartamento           Descripción del departamento
+         * @param  DateTime  $fechaCreacionDepartamento  Fecha de creación del departamento
+         * @param  float     $volumenDeNegocio           Volúmen de negocio del departamento
+         * @param  DateTime  $fechaBajaDepartamento      Fecha de baja del departamento
+         */
         public function __construct($codDepartamento, $descDepartamento, $fechaCreacionDepartamento, $volumenDeNegocio, $fechaBajaDepartamento) {
             $this->codDepartamento = $codDepartamento;
             $this->descDepartamento = $descDepartamento;

@@ -15,7 +15,7 @@
         $formularioValido = true;
         
         $mensajesError = [
-            'codUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['codUsuario'], 255, 1, 1) . UsuarioPDO::validarCodNoExiste($_REQUEST['codUsuario'])? '' : 'El usuario ya existe',
+            'codUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['codUsuario'], 255, 1, 1) . UsuarioPDO::validaCodNoExiste($_REQUEST['codUsuario'])? '' : 'El usuario ya existe',
             'descUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['descUsuario'], 255, 1, 1),
             'password' => ''
         ];

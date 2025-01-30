@@ -27,8 +27,10 @@
             <input type="submit" id="pedirTiempo" name="pedirTiempo" value="Pedir Tiempo">
         </form>
         <?php
-            foreach ($datosTiempo as $key => $value) {
-                print("$key: $value\n");
+            if (isset($datosTiempo)) {
+                foreach ($datosTiempo as $key => $value) {
+                    print("$key: $value\n");
+                }
             }
         ?>
     </div>

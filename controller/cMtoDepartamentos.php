@@ -1,4 +1,13 @@
 <?php
+    $clavesRequest = array_keys($_REQUEST);
+    
+    if ($resultado = preg_grep('/^modificar[A-Z]{3}$/', $clavesRequest)) {
+        $_SESSION['departamentoEnCurso'] = DepartamentoPDO::buscaDepartamentoPorCod(substr($resultado[0], -3));
+        $_SESSION['paginaEnCurso'] = 'consultarModificarDepartamento';
+        header('Location: index.php');
+        exit();
+    }
+
     if (isset($_REQUEST['volver'])) {
         $_SESSION['paginaEnCurso'] = 'inicioPrivado';
         header('Location: index.php');
@@ -6,30 +15,6 @@
     }
     
     if (isset($_REQUEST['altaDepartamento'])) {
-        $_SESSION['paginaEnCurso'] = 'wip';
-        header('Location: index.php');
-        exit();
-    }
-    
-    if (isset($_REQUEST['consultarModificarDepartamento'])) {
-        $_SESSION['paginaEnCurso'] = 'wip';
-        header('Location: index.php');
-        exit();
-    }
-    
-    if (isset($_REQUEST['eliminarDepartamento'])) {
-        $_SESSION['paginaEnCurso'] = 'wip';
-        header('Location: index.php');
-        exit();
-    }
-    
-    if (isset($_REQUEST['bajaDepartamento'])) {
-        $_SESSION['paginaEnCurso'] = 'wip';
-        header('Location: index.php');
-        exit();
-    }
-    
-    if (isset($_REQUEST['rehabilitarDepartamento'])) {
         $_SESSION['paginaEnCurso'] = 'wip';
         header('Location: index.php');
         exit();
@@ -45,6 +30,12 @@
         $_SESSION['paginaEnCurso'] = 'wip';
         header('Location: index.php');
         exit();
+    }
+    
+    $datosDepartamentos = [];
+    $departamentos = DepartamentoPDO::buscaDepartamentosPorDesc(isset($_REQUEST['descDepartamento'])? $_REQUEST['descDepartamento'] : '');
+    foreach ($departamentos as $valor) {
+        array_push($datosDepartamentos, $valor->getArrayDatos());
     }
     
     require_once $view['layout'];

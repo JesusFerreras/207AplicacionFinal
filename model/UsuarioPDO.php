@@ -1,15 +1,24 @@
 <?php
+    /**
+     * Clase
+     * 
+     * Clase a través de la cual se realizan las consultas a la base de datos en lo que respecta a los usuarios
+     * 
+     * @author  Jesús Ferreras
+     * 
+     * @category 
+     */
     class UsuarioPDO implements UsuarioDB {
         
         /**
-         * Función 
+         * Función validarUsuario
          * 
-         * 
+         * Función que comprueba que el código y la contraseña sin cifrar corresponde a un usuario existente
          * 
          * @param  string  $codUsuario  Código del usuario
-         * @param  string  $password    Contraseña del usuario
+         * @param  string  $password    Contraseña sin cifrar del usuario
          * 
-         * @return  Usuario  Usuario
+         * @return  Usuario  Usuario con el código y la contraseña indicados, false si no existe
          */
         #[\Override]
         public static function validarUsuario($codUsuario, $password) {
@@ -47,11 +56,11 @@
         }
         
         /**
-         * Función 
+         * Función registrarUltimaConexion
          * 
+         * Función que actualiza el usuario para indicar que se ha conectado
          * 
-         * 
-         * @param
+         * @param  Usuario  $usuario  Usuario a actualizar
          * 
          * @return  Usuario  Usuario actualizado
          */
@@ -72,11 +81,11 @@
         }
         
         /**
-         * Función 
+         * Función buscarUsuarioPorCod
          * 
+         * Función que busca un usuario por su código y lo devuelve
          * 
-         * 
-         * @param
+         * @param    $  
          * 
          * @return
          */
@@ -87,14 +96,14 @@
         /**
          * Función altaUsuario
          * 
-         * 
+         * Función que crea un usuario, lo da de alta y lo devuelve
          * 
          * @param  string  $codUsuario     Código del usuario
          * @param  string  $password       Contraseña del usuario
          * @param  string  $descUsuario    Descripción del usuario
-         * @param          $imagenUsuario  Imágen del usuario
+         * @param          $imagenUsuario  Opcional, imagen del usuario
          * 
-         * @return
+         * @return  Usuario  Usuario ya dado de alta
          */
         public static function altaUsuario($codUsuario, $password, $descUsuario, $imagenUsuario = null) {
             $insercion = <<<FIN
@@ -134,15 +143,15 @@
         }
         
         /**
-         * Función 
+         * Función validaCodNoExiste
          * 
+         * Función que comprueba si existe un usuario con el código indicado
          * 
+         * @param  string  $codUsuario  Código a comprobar
          * 
-         * @param
-         * 
-         * @return
+         * @return  bool  True si el código no existe, false en caso contrario
          */
-        public static function validarCodNoExiste($codUsuario) {
+        public static function validaCodNoExiste($codUsuario) {
             return (
                 DBPDO::ejecutarConsulta(<<<FIN
                     select T01_CodUsuario from T01_Usuario
@@ -155,9 +164,9 @@
         /**
          * Función 
          * 
+         * Función que 
          * 
-         * 
-         * @param
+         * @param    $  
          * 
          * @return
          */
@@ -168,9 +177,9 @@
         /**
          * Función 
          * 
+         * Función que 
          * 
-         * 
-         * @param
+         * @param    $  
          * 
          * @return
          */
@@ -181,9 +190,9 @@
         /**
          * Función 
          * 
+         * Función que 
          * 
-         * 
-         * @param
+         * @param    $  
          * 
          * @return
          */
@@ -194,9 +203,9 @@
         /**
          * Función 
          * 
+         * Función que 
          * 
-         * 
-         * @param
+         * @param    $  
          * 
          * @return
          */
@@ -207,9 +216,9 @@
         /**
          * Función 
          * 
+         * Función que 
          * 
-         * 
-         * @param
+         * @param    $  
          * 
          * @return
          */
@@ -220,9 +229,9 @@
         /**
          * Función 
          * 
+         * Función que 
          * 
-         * 
-         * @param
+         * @param    $  
          * 
          * @return
          */
@@ -233,9 +242,9 @@
         /**
          * Función 
          * 
+         * Función que 
          * 
-         * 
-         * @param
+         * @param    $  
          * 
          * @return
          */
@@ -246,9 +255,9 @@
         /**
          * Función 
          * 
+         * Función que 
          * 
-         * 
-         * @param
+         * @param    $  
          * 
          * @return
          */
