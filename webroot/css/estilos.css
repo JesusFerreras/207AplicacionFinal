@@ -48,7 +48,6 @@ body.oscuro {
     border: none;
     font-family: 'Segoe UI';
     font-style: normal;
-    font-weight: normal;
     color: var(--colorLetra);
 }
 
@@ -75,6 +74,7 @@ body {
     }
         header > h1 {
             flex: 1;
+            font-weight: normal;
         }
         header > button {
             display: flex;
@@ -107,6 +107,7 @@ body {
     main {
         display: flex;
         flex: 1;
+        gap: 16px;
     }
         main > form#navegacion {
             display: block;
@@ -163,7 +164,9 @@ body {
                     background-color: var(--colorAcentoO);
                 }
         main > div#contenido {
-            padding: 8px 16px;
+            padding: 8px;
+            padding-right: 32px;
+            flex: 1;
         }
             main > div#contenido > table {
                 width: 100%;
@@ -185,6 +188,9 @@ body {
                     main > div#contenido > table  td {
                         
                     }
+        main > div.divRest {
+            flex: 1;
+        }
     footer {
         display: flex;
         justify-content: space-around;

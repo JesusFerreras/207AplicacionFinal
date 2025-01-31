@@ -1,17 +1,26 @@
 <?php
+    /**
+     * Clase BDPDO
+     * 
+     * Clase que conecta a una base de datos para realizar consultas
+     * 
+     * @author  Jesús Ferreras
+     * 
+     * @category 
+     */
     class DBPDO implements DB {
         
         /**
          * Función ejecutarConsulta
          * 
-         * Ejecuta una sentencia SQL y devuelve el resultado
+         * Función que ejecuta una sentencia SQL y devuelve el resultado
          * 
-         * @param   string  $sentenciaSQL   Cadena de texto a ejecutar como 
-         * @param   mixed[] $parametros     Opcional. Array asociativo tal que cada clave sea el nombre de uno
+         * @param  string   $sentenciaSQL   Cadena de texto a ejecutar como 
+         * @param  mixed[]  $parametros     Opcional. Array asociativo tal que cada clave sea el nombre de uno
          *                                  de los marcadores de $sentenciaSQL y el número de datos
          *                                  sea igual al número de marcadores
          * 
-         * @return  PDOStatement    Un objeto PDOStatement ya ejecutado
+         * @return  PDOStatement  Un objeto PDOStatement ya ejecutado
          */
         #[\Override]
         public static function ejecutarConsulta($sentenciaSQL, $parametros = null) {

@@ -1,9 +1,18 @@
 <?php
+    /**
+     * Clase Usuario
+     * 
+     * Clase que representa un usuario y sus datos
+     * 
+     * @author  Jesús Ferreras
+     * 
+     * @category 
+     */
     class Usuario {
         /** @var  string  $codUsuario  Código del usuario */
         private $codUsuario;
         
-        /** @var  string  $password  Contraseña encriptada */
+        /** @var  string  $password  Contraseña del usuario */
         private $password;
         
         /** @var  string  $descUsuario  Descripción del usuario */
@@ -12,22 +21,37 @@
         /** @var  int  $numConexiones  Número de veces que se ha conectado el usuario */
         private $numConexiones;
         
-        /** @var  DateTime  $fechaHoraUltimaConexion  Fecha y hora a la que se conecta el usuario */
+        /** @var  DateTime  $fechaHoraUltimaConexion  Fecha y hora a la que se ha conecta el usuario */
         private $fechaHoraUltimaConexion;
         
-        /** @var  DateTime  $fechaHoraUltimaConexionAnterior  Fecha y hora a la que se conectó el usuario por última vez */
+        /** @var  DateTime  $fechaHoraUltimaConexionAnterior  Fecha y hora a la que se conectó el usuario la vez anterior */
         private $fechaHoraUltimaConexionAnterior;
         
         /** @var  string  $perfil  Perfil del usuario, puede ser 'administrador' o 'usuario' */
         private $perfil;
         
-        /** @var    $imagenUsuario  Imágen del usuario */
+        /** @var    $imagenUsuario  Imagen del usuario */
         private $imagenUsuario;
         
-        /** @var  mixed[]  $listaOpinionesUsuario  Lista con las opiniones del usuario */
+        /** @var    $listaOpinionesUsuario  Lista con las opiniones del usuario */
         private $listaOpinionesUsuario;
         
         
+        /**
+         * Función constructora
+         * 
+         * Construye un nuevo objeto de la clase Usuario a partir de los datos introducidos
+         * 
+         * @param  string    $codUsuario                       Código del usuario
+         * @param  string    $password                         Contraseña del usuario
+         * @param  string    $descUsuario                      Descripción del usuario
+         * @param  int       $numConexiones                    Número de conexiones del usuario
+         * @param  DateTime  $fechaHoraUltimaConexion          Fecha y hora a la que se ha conectado el usuario
+         * @param  DateTime  $fechaHoraUltimaConexionAnterior  Fecha y hora a la que se conectó el usuario la vez anterior
+         * @param  string    $perfil                           Perfil del usuario
+         * @param            $imagenUsuario                    Imagen del usuario
+         * @param            $listaOpinionesUsuario            Lista de opiniones del usuario
+         */
         public function __construct($codUsuario, $password, $descUsuario, $numConexiones, $fechaHoraUltimaConexion, $fechaHoraUltimaConexionAnterior, $perfil, $imagenUsuario, $listaOpinionesUsuario) {
             $this->codUsuario = $codUsuario;
             $this->password = $password;
@@ -87,7 +111,7 @@
         /**
          * Función getFechaHoraUltimaConexion
          * 
-         * Devuelve la fecha y hora a la que se conectó el usuario
+         * Devuelve la fecha y hora a la que se ha conectado el usuario
          * 
          * @return  DateTime  Fecha y hora de la conexión
          */
@@ -133,7 +157,7 @@
          * 
          * Devuelve la lista de opiniones del usuario
          * 
-         * @return  mixed[]  Lista de opiniones del usuario
+         * @return    Lista de opiniones del usuario
          */
         public function getListaOpinionesUsuario() {
             return $this->listaOpinionesUsuario;
@@ -232,7 +256,7 @@
          * 
          * Sustituye la lista de opiniones del usuario por la indicada
          * 
-         * @param  mixed[]  $listaOpinionesUsuario  Lista de opiniones del usuario
+         * @param    $listaOpinionesUsuario  Lista de opiniones del usuario
          */
         public function setListaOpinionesUsuario($listaOpinionesUsuario): void {
             $this->listaOpinionesUsuario = $listaOpinionesUsuario;
@@ -243,7 +267,7 @@
          * 
          * Devuelve un array asociativo con cada uno de los atributos del usuario
          * 
-         * @return  array  Datos del usuario
+         * @return  mixed[]  Datos del usuario
          */
         public function getArrayDatos() {
             return [

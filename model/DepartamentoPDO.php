@@ -1,36 +1,224 @@
 <?php
+    /**
+     * Clase DepartamentoPDO
+     * 
+     * Clase a través de la cual se realizan las consultas a la base de datos en lo que respecta a los departamentos
+     * 
+     * @author  Jesús Ferreras
+     * 
+     * @category 
+     */
     class DepartamentoPDO {
         
-        public static function buscaDepartamentoPorCod() {
+        /**
+         * Función buscaDepartamentoPorCod
+         * 
+         * Función que busca un departemento en base a su código y lo devuelve
+         * 
+         * @param  string  $codDepartamento  Código del departamento a buscar
+         * 
+         * @return  Departamento  Departamento con el código indicado o false si no existe
+         */
+        public static function buscaDepartamentoPorCod($codDepartamento) {
+            $seleccion = <<<FIN
+                select * from T02_Departamento
+                    where T02_CodDepartamento = '$codDepartamento'
+                ;
+            FIN;
+            
+            $consulta = DBPDO::ejecutarConsulta($seleccion);
+            
+            if ($consulta->rowCount() > 0) {
+                $datos = $consulta->fetchObject();
 
+                return new Departamento(
+                    $datos->T02_CodDepartamento,
+                    $datos->T02_DescDepartamento,
+                    new DateTime($datos->T02_FechaCreacionDepartamento),
+                    $datos->T02_VolumenDeNegocio,
+                    (is_null($departamento->T02_FechaBajaDepartamento))? null : new DateTime($departamento->T02_FechaBajaDepartamento)
+                );
+            } else {
+                return false;
+            }
         }
         
-        public static function buscaDepartamentosPorDesc() {
-
+        /**
+         * Función buscaDepartamentosPorDesc
+         * 
+         * Función que busca los departamentos cuya descripción contenga la cadena indicada y los devuelve como array numérico
+         * 
+         * @param  string  $descDepartamento  Descripción completa o no de los departamentos a buscar
+         * 
+         * @return  Departamento[]  Array numérico con los departamentos encontrados
+         */
+        public static function buscaDepartamentosPorDesc($descDepartamento) {
+            $seleccion = <<<FIN
+                select * from T02_Departamento
+                    where T02_descDepartamento like '%$descDepartamento%'
+                ;
+            FIN;
+            
+            $consulta = DBPDO::ejecutarConsulta($seleccion);
+            $departamentos = [];
+            
+            while ($departamento = $consulta->fetchObject()) {
+                array_push($departamentos, new Departamento(
+                    $departamento->T02_CodDepartamento,
+                    $departamento->T02_DescDepartamento,
+                    new DateTime($departamento->T02_FechaCreacionDepartamento),
+                    $departamento->T02_VolumenDeNegocio,
+                    (is_null($departamento->T02_FechaBajaDepartamento))? null : new DateTime($departamento->T02_FechaBajaDepartamento)
+                ));
+            }
+            
+            return $departamentos;
         }
         
-        public static function altaDepartamento() {
-
+        /**
+         * Función altaDepartamento
+         * 
+         * Función que da de alta un nuevo departamento y lo devuelve
+         * 
+         * @param  string  $codDepartamento   Código del nuevo departamento
+         * @param  string  $descDepartamento  Descripción del nuevo departamento  
+         * @param  float   $volumenDeNegocio  Volumen de negocio del nuevo departamento  
+         * 
+         * @return  Departamento  Nuevo departamento
+         */
+        public static function altaDepartamento($codDepartamento, $descDepartamento, $volumenDeNegocio) {
+            $insercion = <<<FIN
+                insert into T02_Departamento(T02_CodDepartamento, T02_DescDepartamento, T02_VolumenDeNegocio) values
+                    (:codDepartamento, :descDepartamento, :volumenDeNegocio)
+                ;
+            FIN;
+            
+            $parametros = [
+                'codDepartamento' => $codDepartamento,
+                'descDepartamento' => $descDepartamento,
+                'volumenDeNegocio' => $volumenDeNegocio
+            ];
+            
+            $seleccion = <<<FIN
+                select * from T02_Departamento
+                    where T02_CodDepartamento = '$codDepartamento'
+                ;
+            FIN;
+            
+            DBPDO::ejecutarConsulta($insercion, $parametros);
+            
+            $datos = DBPDO::ejecutarConsulta($seleccion)->fetchObject();
+            
+            return new Departamento(
+                $datos->T02_CodDepartamento,
+                $datos->T02_DescDepartamento,
+                new DateTime($datos->T02_FechaCreacionDepartamento),
+                $datos->T02_VolumenDeNegocio,
+                (is_null($departamento->T02_FechaBajaDepartamento))? null : new DateTime($departamento->T02_FechaBajaDepartamento)
+            );
         }
         
+        /**
+         * Función bajaFisicaDepartamento
+         * 
+         * Función que elimina el departamento indicado
+         * 
+         * @param    $  
+         * 
+         * @return
+         */
         public static function bajaFisicaDepartamento() {
 
         }
         
+        /**
+         * Función bajaLogicaDepartamento
+         * 
+         * Función que da de baja el departamento indicado
+         * 
+         * @param    $  
+         * 
+         * @return
+         */
         public static function bajaLogicaDepartamento() {
 
         }
         
-        public static function modificaDepartamento() {
-
+        /**
+         * Función modificaDepartamento
+         * 
+         * Función que modifica la descripción y el volumen del departamento con el código indicado
+         * 
+         * @param  string  $codDepartamento   Código del departamento a modificar
+         * @param  string  $descDepartamento  Nueva descripción del departamento
+         * @param  float   $volumenDeNegocio  Nuevo volumen del departamento
+         * 
+         * @return  Departamento  Departamento actualizado
+         */
+        public static function modificaDepartamento($codDepartamento, $descDepartamento, $volumenDeNegocio) {
+            $actualizacion = <<<FIN
+                update T02_Departamento
+                    set T02_DescDepartamento = :descDepartamento,
+                    set T02_VolumenDeNegocio = :volumenDeNegocio
+                    where T02_CodDepartamento = :codDepartamento
+                ;
+            FIN;
+            
+            $parametros = [
+                'codDepartamento' => $codDepartamento,
+                'descDepartamento' => $descDepartamento,
+                'volumenDeNegocio' => $volumenDeNegocio
+            ];
+            
+            $seleccion = <<<FIN
+                select * from T02_Departamento
+                    where T02_CodDepartamento = '$codDepartamento'
+                ;
+            FIN;
+            
+            DBPDO::ejecutarConsulta($actualizacion, $parametros);
+            
+            $datos = DBPDO::ejecutarConsulta($seleccion)->fetchObject();
+            
+            return new Departamento(
+                $datos->T02_CodDepartamento,
+                $datos->T02_DescDepartamento,
+                new DateTime($datos->T02_FechaCreacionDepartamento),
+                $datos->T02_VolumenDeNegocio,
+                (is_null($departamento->T02_FechaBajaDepartamento))? null : new DateTime($departamento->T02_FechaBajaDepartamento)
+            );
         }
         
+        /**
+         * Función rehabilitaDepartamento
+         * 
+         * Función que vuelve a dar de alta a un departamento al que se le ha dado de baja lógica
+         * 
+         * @param    $  
+         * 
+         * @return
+         */
         public static function rehabilitaDepartamento() {
 
         }
         
-        public static function validaCodNoExiste() {
-            
+        /**
+         * Función validaCodNoExiste
+         * 
+         * Función que comprueba si existe un departamento con el código indicado
+         * 
+         * @param  string  $codDepartamento  Código a comprobar
+         * 
+         * @return  bool  True si el código no existe, false en caso contrario
+         */
+        public static function validaCodNoExiste($codDepartamento) {
+            return (
+                DBPDO::ejecutarConsulta(<<<FIN
+                    select T02_CodDepartamento from T02_Departamento
+                        where T02_CodDepartamento = '$codDepartamento'
+                    ;
+                FIN)->rowCount() == 0
+            );
         }
     }
 ?>
