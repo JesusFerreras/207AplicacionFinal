@@ -27,7 +27,7 @@
             </tr>
             <?php
                 foreach ($datosDepartamentos as $departamento) {
-                    print('<tr>');
+                    print(is_null($departamento['fechaBajaDepartamento'])? '<tr>' : '<tr class="enBaja">');
                     foreach ($departamento as $valor) {
                         if ($valor instanceof DateTime) {
                             print('<td>'.date_format($valor,'d/m/Y H:i:s').'</td>');
@@ -37,12 +37,12 @@
                     }
                     print(<<<FIN
                         <td>
-                            <form id="accionDepartamento" action="{$_SERVER['PHP_SELF']}" method="post" novalidate>
-                                <input type="submit" id="modificar{$departamento['codDepartamento']}" name="modificar{$departamento['codDepartamento']}" value="Modificar">
-                                <input type="submit" id="eliminar{$departamento['codDepartamento']}" name="eliminar{$departamento['codDepartamento']}" value="Eliminar">
+                            <form class="accionDepartamento" action="{$_SERVER['PHP_SELF']}" method="post" novalidate>
+                                <input type="submit" id="modificar{$departamento['codDepartamento']}" name="modificar{$departamento['codDepartamento']}" value="&#9998;">
+                                <input type="submit" id="eliminar{$departamento['codDepartamento']}" name="eliminar{$departamento['codDepartamento']}" value="&#128465;">
                     FIN . (is_null($departamento['fechaBajaDepartamento'])? 
-                                "<input type=\"submit\" id=\"baja{$departamento['codDepartamento']}\" name=\"baja{$departamento['codDepartamento']}\" value=\"Dar de baja\">" :
-                                "<input type=\"submit\" id=\"rehabilitar{$departamento['codDepartamento']}\" name=\"rehabilitar{$departamento['codDepartamento']}\" value=\"Rehabilitar\">"
+                                "<input type=\"submit\" id=\"baja{$departamento['codDepartamento']}\" name=\"baja{$departamento['codDepartamento']}\" value=\"&#9660;\">" :
+                                "<input type=\"submit\" id=\"rehabilitar{$departamento['codDepartamento']}\" name=\"rehabilitar{$departamento['codDepartamento']}\" value=\"&#9650;\">"
                     ) . <<<FIN
                             </form>
                         </td>

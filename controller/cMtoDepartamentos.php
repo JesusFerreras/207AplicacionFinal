@@ -7,6 +7,18 @@
         header('Location: index.php');
         exit();
     }
+    
+    if ($resultado = preg_grep('/^baja[A-Z]{3}$/', $clavesRequest)) {
+        DepartamentoPDO::bajaLogicaDepartamento(substr($resultado[0], -3));
+        header('Location: index.php');
+        exit();
+    }
+    
+    if ($resultado = preg_grep('/^rehabilitar[A-Z]{3}$/', $clavesRequest)) {
+        DepartamentoPDO::rehabilitaDepartamento(substr($resultado[0], -3));
+        header('Location: index.php');
+        exit();
+    }
 
     if (isset($_REQUEST['volver'])) {
         $_SESSION['paginaEnCurso'] = 'inicioPrivado';

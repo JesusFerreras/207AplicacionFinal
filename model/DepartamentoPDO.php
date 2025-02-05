@@ -36,7 +36,7 @@
                     $datos->T02_DescDepartamento,
                     new DateTime($datos->T02_FechaCreacionDepartamento),
                     $datos->T02_VolumenDeNegocio,
-                    (is_null($departamento->T02_FechaBajaDepartamento))? null : new DateTime($departamento->T02_FechaBajaDepartamento)
+                    (is_null($datos->T02_FechaBajaDepartamento))? null : new DateTime($datos->T02_FechaBajaDepartamento)
                 );
             } else {
                 return false;
@@ -62,13 +62,13 @@
             $consulta = DBPDO::ejecutarConsulta($seleccion);
             $departamentos = [];
             
-            while ($departamento = $consulta->fetchObject()) {
+            while ($datos = $consulta->fetchObject()) {
                 array_push($departamentos, new Departamento(
-                    $departamento->T02_CodDepartamento,
-                    $departamento->T02_DescDepartamento,
-                    new DateTime($departamento->T02_FechaCreacionDepartamento),
-                    $departamento->T02_VolumenDeNegocio,
-                    (is_null($departamento->T02_FechaBajaDepartamento))? null : new DateTime($departamento->T02_FechaBajaDepartamento)
+                    $datos->T02_CodDepartamento,
+                    $datos->T02_DescDepartamento,
+                    new DateTime($datos->T02_FechaCreacionDepartamento),
+                    $datos->T02_VolumenDeNegocio,
+                    ((is_null($datos->T02_FechaBajaDepartamento))? null : new DateTime($datos->T02_FechaBajaDepartamento))
                 ));
             }
             
@@ -114,7 +114,7 @@
                 $datos->T02_DescDepartamento,
                 new DateTime($datos->T02_FechaCreacionDepartamento),
                 $datos->T02_VolumenDeNegocio,
-                (is_null($departamento->T02_FechaBajaDepartamento))? null : new DateTime($departamento->T02_FechaBajaDepartamento)
+                ((is_null($datos->T02_FechaBajaDepartamento))? null : new DateTime($datos->T02_FechaBajaDepartamento))
             );
         }
         
@@ -136,12 +136,17 @@
          * 
          * Función que da de baja el departamento indicado
          * 
-         * @param    $  
-         * 
-         * @return
+         * @param  string  $codDepartamento  Código del departamento a dar de baja
          */
-        public static function bajaLogicaDepartamento() {
-
+        public static function bajaLogicaDepartamento($codDepartamento) {
+            $actualizacion = <<<FIN
+                update T02_Departamento
+                    set T02_FechaBajaDepartamento = now()
+                    where T02_CodDepartamento = '$codDepartamento'
+                ;
+            FIN;
+            
+            DBPDO::ejecutarConsulta($actualizacion);
         }
         
         /**
@@ -159,7 +164,7 @@
             $actualizacion = <<<FIN
                 update T02_Departamento
                     set T02_DescDepartamento = :descDepartamento,
-                    set T02_VolumenDeNegocio = :volumenDeNegocio
+                    T02_VolumenDeNegocio = :volumenDeNegocio
                     where T02_CodDepartamento = :codDepartamento
                 ;
             FIN;
@@ -178,13 +183,13 @@
             
             DBPDO::ejecutarConsulta($actualizacion, $parametros);
             
-            $datos = DBPDO::ejecutarConsulta($seleccion)->fetchObject();
+            $departamento = DBPDO::ejecutarConsulta($seleccion)->fetchObject();
             
             return new Departamento(
-                $datos->T02_CodDepartamento,
-                $datos->T02_DescDepartamento,
-                new DateTime($datos->T02_FechaCreacionDepartamento),
-                $datos->T02_VolumenDeNegocio,
+                $departamento->T02_CodDepartamento,
+                $departamento->T02_DescDepartamento,
+                new DateTime($departamento->T02_FechaCreacionDepartamento),
+                $departamento->T02_VolumenDeNegocio,
                 (is_null($departamento->T02_FechaBajaDepartamento))? null : new DateTime($departamento->T02_FechaBajaDepartamento)
             );
         }
@@ -194,12 +199,19 @@
          * 
          * Función que vuelve a dar de alta a un departamento al que se le ha dado de baja lógica
          * 
-         * @param    $  
+         * @param  string  $codDepartamento  Código del departamento a rehabilitar
          * 
          * @return
          */
-        public static function rehabilitaDepartamento() {
-
+        public static function rehabilitaDepartamento($codDepartamento) {
+            $actualizacion = <<<FIN
+                update T02_Departamento
+                    set T02_FechaBajaDepartamento = null
+                    where T02_CodDepartamento = '$codDepartamento'
+                ;
+            FIN;
+            
+            DBPDO::ejecutarConsulta($actualizacion);
         }
         
         /**
