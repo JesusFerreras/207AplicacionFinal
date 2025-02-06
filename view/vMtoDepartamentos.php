@@ -13,7 +13,7 @@
     </form>
     <div id="contenido">
         <form id="busquedaDepartamentos" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
-            <input type="text" id="descDepartamento" name="descDepartamento" <?php print(isset($_REQUEST['descDepartamento'])? "value=\"{$_REQUEST['descDepartamento']}\"" : ''); ?>>
+            <input type="text" id="descDepartamento" name="descDepartamento" <?php print(isset($_REQUEST['descDepartamento'])? "value=\"{$_REQUEST['descDepartamento']}\"" : (isset($_SESSION['descDepartamento'])? "value=\"{$_SESSION['descDepartamento']}\"" : '')); ?>>
             <input type="submit" id="buscarDepartamento" name="buscarDepartamento" value="Buscar">
         </form>
         <table>

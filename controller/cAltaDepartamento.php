@@ -1,15 +1,15 @@
 <?php
     if (isset($_REQUEST['volver'])) {
-        unset($_SESSION['codDepartamentoEnCurso']);
         $_SESSION['paginaEnCurso'] = 'mtoDepartamentos';
         header('Location: index.php');
         exit();
     }
     
-    if (isset($_REQUEST['modificar'])) {
+    if (isset($_REQUEST['altaDepartamento'])) {
         $formularioValido = true;
         
         $mensajesError = [
+            'codDepartamento' => ((preg_match('/^[A-Z]{3}$/', $_REQUEST['codDepartamento']) == 0)? 'El código debe ser 3 letras mayúsculas' : '') . (DepartamentoPDO::validaCodNoExiste($_REQUEST['codDepartamento'])? '' : 'El código ya existe'),
             'descDepartamento' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['descDepartamento'], 255, 1, 1),
             'volumenDeNegocio' => validacionFormularios::comprobarFloat($_REQUEST['volumenDeNegocio'], PHP_FLOAT_MAX, 0, 1)
         ];
@@ -22,16 +22,13 @@
         }
         
         if ($formularioValido) {
-            $departamento = DepartamentoPDO::modificaDepartamento($_SESSION['codDepartamentoEnCurso'], $_REQUEST['descDepartamento'], $_REQUEST['volumenDeNegocio']);
+            DepartamentoPDO::altaDepartamento($_REQUEST['codDepartamento'], $_REQUEST['descDepartamento'], $_REQUEST['volumenDeNegocio']);
 
-            unset($_SESSION['codDepartamentoEnCurso']);
             $_SESSION['paginaEnCurso'] = 'mtoDepartamentos';
             header('Location: index.php');
             exit();
         }
     }
-
-    $datosDepartamento = DepartamentoPDO::buscaDepartamentoPorCod($_SESSION['codDepartamentoEnCurso'])->getArrayDatos();
     
     require_once $view['layout'];
 ?>

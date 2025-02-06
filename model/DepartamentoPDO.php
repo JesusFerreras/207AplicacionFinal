@@ -81,10 +81,8 @@
          * Función que da de alta un nuevo departamento y lo devuelve
          * 
          * @param  string  $codDepartamento   Código del nuevo departamento
-         * @param  string  $descDepartamento  Descripción del nuevo departamento  
-         * @param  float   $volumenDeNegocio  Volumen de negocio del nuevo departamento  
-         * 
-         * @return  Departamento  Nuevo departamento
+         * @param  string  $descDepartamento  Descripción del nuevo departamento
+         * @param  float   $volumenDeNegocio  Volumen de negocio del nuevo departamento
          */
         public static function altaDepartamento($codDepartamento, $descDepartamento, $volumenDeNegocio) {
             $insercion = <<<FIN
@@ -98,15 +96,15 @@
                 'descDepartamento' => $descDepartamento,
                 'volumenDeNegocio' => $volumenDeNegocio
             ];
-            
+            /*
             $seleccion = <<<FIN
                 select * from T02_Departamento
                     where T02_CodDepartamento = '$codDepartamento'
                 ;
             FIN;
-            
+            */
             DBPDO::ejecutarConsulta($insercion, $parametros);
-            
+            /*
             $datos = DBPDO::ejecutarConsulta($seleccion)->fetchObject();
             
             return new Departamento(
@@ -116,6 +114,7 @@
                 $datos->T02_VolumenDeNegocio,
                 ((is_null($datos->T02_FechaBajaDepartamento))? null : new DateTime($datos->T02_FechaBajaDepartamento))
             );
+            */
         }
         
         /**
@@ -123,12 +122,16 @@
          * 
          * Función que elimina el departamento indicado
          * 
-         * @param    $  
-         * 
-         * @return
+         * @param  string  $codDepartamento  Codigo del departamento a borrar
          */
-        public static function bajaFisicaDepartamento() {
-
+        public static function bajaFisicaDepartamento($codDepartamento) {
+            $borrado = <<<FIN
+                delete from T02_Departamento
+                    where T02_CodDepartamento = '$codDepartamento'
+                ;
+            FIN;
+            
+            DBPDO::ejecutarConsulta($borrado);
         }
         
         /**
