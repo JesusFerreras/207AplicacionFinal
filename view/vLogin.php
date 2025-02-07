@@ -3,7 +3,7 @@
     <button id="cambioTema">&#x25D1;</button>
 </header>
 <main>
-    <form id="accesoACuenta" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
+    <form id="datos" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
         <h2>Login</h2>
         <input type="text" id="codUsuario" name="codUsuario" placeholder="Código" required autofocus>
         <input type="password" id="password" name="password" placeholder="Contraseña" required>

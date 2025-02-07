@@ -31,6 +31,7 @@ body.claro {
     --fondo3: var(--fondo3C);
     --fondo4: var(--fondo4C);
     --colorLetra: var(--colorLetraC);
+    --error: red;
 }
 
 body.oscuro {
@@ -39,6 +40,7 @@ body.oscuro {
     --fondo3: var(--fondo3O);
     --fondo4: var(--fondo4O);
     --colorLetra: var(--colorLetraO);
+    --error: var(--rojo);
 }
 
 * {
@@ -56,6 +58,9 @@ a:hover, a:active {
 }
 input[required] {
     background-color: var(--amarilloC);
+}
+p.error {
+    color: var(--error);
 }
 
 body {
@@ -109,14 +114,14 @@ body {
         flex: 1;
         gap: 16px;
     }
-        main > form#navegacion {
+        form#navegacion {
             display: block;
             min-width: fit-content;
             width: 10%;
             margin: 0;
             background-color: var(--fondo1);
         }
-            main > form#navegacion > input[type="submit"] {
+            form#navegacion > input[type="submit"] {
                 display: block;
                 min-width: fit-content;
                 width: 100%;
@@ -125,11 +130,11 @@ body {
                 background-color: rgba(0, 0, 0, 0);
                 text-align: left;
             }
-            main > form#navegacion > input[type="submit"]:hover {
+            form#navegacion > input[type="submit"]:hover {
                 background-color: var(--fondo3);
                 cursor: pointer;
             }
-        main > form#accesoACuenta {
+        form#datos {
             max-width: 30%;
             min-width: 400px;
             height: fit-content;
@@ -138,57 +143,93 @@ body {
             border-radius: 16px;
             background-color: var(--fondo1);
         }
-            main > form#accesoACuenta > * {
+            form#datos > * {
                 display: flex;
                 gap: 16px;
                 width: 100%;
                 margin: 16px 0;
             }
-            main > form#accesoACuenta > input[type="text"],
-            main > form#accesoACuenta > input[type="password"] {
+            form#datos > input[type="text"],
+            form#datos > input[type="password"],
+            form#datos > input[type="datetime-local"] {
                 padding: 8px;
                 border-radius: 8px;
                 border: 1px solid var(--fondo3);
                 color: var(--colorLetraC);
             }
-                main > form#accesoACuenta > div > * {
+                form#datos > div > * {
                     width: 100%;
                 }
-                main > form#accesoACuenta  input[type="submit"] {
+                form#datos  input[type="submit"] {
                     padding: 8px 16px;
                     border-radius: 8px;
                     background-color: var(--colorAcento);
                     color: var(--colorLetraO);
                 }
-                main > form#accesoACuenta  input[type="submit"]:hover {
+                form#datos  input[type="submit"]:hover {
                     background-color: var(--colorAcentoO);
                 }
-        main > div#contenido {
+        div#contenido {
             padding: 8px;
             padding-right: 32px;
             flex: 1;
         }
-            main > div#contenido > table {
+            div#contenido > table {
                 width: 100%;
                 border: 1px solid var(--fondo1);
                 border-collapse: collapse;
             }
-                main > div#contenido > table  tr {
+                div#contenido > table  tr {
             
                 }
-                main > div#contenido > table  tr:nth-of-type(2n+1) {
+                div#contenido > table  tr:nth-of-type(2n+1) {
                     background-color: var(--fondo1);
                 }
-                    main > div#contenido > table  tr > * {
+                    div#contenido > table  tr > * {
                         padding: 4px;
                     }
-                    main > div#contenido > table  th {
+                    div#contenido > table  th {
+                        text-align: start;
                         font-weight: bold;
                     }
-                    main > div#contenido > table  td {
+                        div#contenido > table  tr.enBaja  * {
+                            color: var(--error);
+                        }
+                    div#contenido > table  td {
                         
                     }
-        main > div.divRest {
+                        div#contenido > table  td > form.accionDepartamento {
+                            display: flex;
+                            justify-content: space-evenly;
+                            align-items: center;
+                        }
+                            div#contenido > table  td > form.accionDepartamento > input {
+                                border-radius: 25%;
+                                background: none;
+                                font-size: large;
+                            }
+                            div#contenido > table tr:nth-of-type(2n) > td > form.accionDepartamento > input:hover {
+                                background-color: var(--fondo1);
+                            }
+                            div#contenido > table tr:nth-of-type(2n+1) > td > form.accionDepartamento > input:hover {
+                                background-color: var(--fondo3);
+                            }
+            div#contenido > form#busquedaDepartamentos {
+                padding: 16px;
+                padding: 8px;
+                border-radius: 8px;
+                border: 1px solid var(--fondo3);
+            }
+                div#contenido > form#busquedaDepartamentos > div#parametrosBusqueda {
+                    
+                }
+                    div#contenido > form#busquedaDepartamentos > div#parametrosBusqueda > input[type="text"] {
+                        padding: 8px;
+                        border-radius: 8px;
+                        border: 1px solid var(--fondo3);
+                        color: var(--colorLetraC);
+                    }
+        div.divRest {
             flex: 1;
         }
     footer {
