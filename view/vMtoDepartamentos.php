@@ -13,7 +13,18 @@
     </form>
     <div id="contenido">
         <form id="busquedaDepartamentos" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
-            <input type="text" id="descDepartamento" name="descDepartamento" <?php print(isset($_REQUEST['descDepartamento'])? "value=\"{$_REQUEST['descDepartamento']}\"" : (isset($_SESSION['descDepartamento'])? "value=\"{$_SESSION['descDepartamento']}\"" : '')); ?>>
+            <div id="parametrosBusqueda">
+                <label for="descDepartamento">Descripción</label>
+                <input type="text" id="descDepartamento" name="descDepartamento" <?php print(isset($_SESSION['descDepartamento'])? "value=\"{$_SESSION['descDepartamento']}\"" : ''); ?>>
+                <div id="botonesEstado">
+                    <input type="radio" id="estadoTodos" name="estadoDepartamento" value="estadoTodos" <?php print((!isset($_SESSION['estadoDepartamento']) || $_SESSION['estadoDepartamento']=='estadoTodos')? 'checked' : ''); ?>>
+                    <label for="estadoTodos">Todos</label>
+                    <input type="radio" id="estadoBaja" name="estadoDepartamento" value="estadoBaja" <?php print((isset($_SESSION['estadoDepartamento']) && $_SESSION['estadoDepartamento']=='estadoBaja')? 'checked' : ''); ?>>
+                    <label for="estadoBaja">Dados de baja</label>
+                    <input type="radio" id="estadoAlta" name="estadoDepartamento" value="estadoAlta" <?php print((isset($_SESSION['estadoDepartamento']) && $_SESSION['estadoDepartamento']=='estadoAlta')? 'checked' : ''); ?>>
+                    <label for="estadoAlta">En activo</label>
+                </div>
+            </div>
             <input type="submit" id="buscarDepartamento" name="buscarDepartamento" value="Buscar">
         </form>
         <table>
@@ -51,5 +62,14 @@
                 }
             ?>
         </table>
+        <!--
+        <form id="paginaDepartamentos" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
+            <input type="submit" id="paginaPrimera" name="paginaPrimera" value="|&lt;">
+            <input type="submit" id="paginaSiguiente" name="paginaSiguiente" value="&lt;">
+            <?php print('<p id="numPaginacion">' . ($_SESSION['numPagina']+1) . '/' . $numPaginas . '</p>'); ?>
+            <input type="submit" id="paginaAnterior" name="paginaAnterior" value="&gt;">
+            <input type="submit" id="paginaUltima" name="paginaUltima" value="&gt;|">
+        </form>
+        -->
     </div>
 </main>

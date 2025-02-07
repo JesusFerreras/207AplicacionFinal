@@ -55,11 +55,64 @@
         public static function buscaDepartamentosPorDesc($descDepartamento) {
             $seleccion = <<<FIN
                 select * from T02_Departamento
-                    where T02_descDepartamento like '%$descDepartamento%'
+                    where T02_DescDepartamento like '%$descDepartamento%'
                 ;
             FIN;
             
             $consulta = DBPDO::ejecutarConsulta($seleccion);
+            
+            $departamentos = [];
+            
+            while ($datos = $consulta->fetchObject()) {
+                array_push($departamentos, new Departamento(
+                    $datos->T02_CodDepartamento,
+                    $datos->T02_DescDepartamento,
+                    new DateTime($datos->T02_FechaCreacionDepartamento),
+                    $datos->T02_VolumenDeNegocio,
+                    ((is_null($datos->T02_FechaBajaDepartamento))? null : new DateTime($datos->T02_FechaBajaDepartamento))
+                ));
+            }
+            
+            return $departamentos;
+        }
+        
+        /**
+         * Función buscaDepartamentosPorDesc
+         * 
+         * Función que busca los departamentos cuya descripción contenga la cadena indicada y los devuelve como array numérico
+         * 
+         * @param  string  $descDepartamento    Descripción completa o no de los departamentos a buscar
+         * @param  bool    $estadoDepartamento  Estado en el que se encuentra el departamento: true si está en activo, false en caso contrario
+         * 
+         * @return  Departamento[]  Array numérico con los departamentos encontrados
+         */
+        public static function buscaDepartamentosPorDescYEstado($descDepartamento, $estadoDepartamento) {
+            if (is_null($estadoDepartamento)) {
+                $seleccion = <<<FIN
+                    select * from T02_Departamento
+                        where T02_DescDepartamento like '%$descDepartamento%'
+                    ;
+                FIN;
+            } else {
+                if ($estadoDepartamento) {
+                    $seleccion = <<<FIN
+                        select * from T02_Departamento
+                            where T02_DescDepartamento like '%$descDepartamento%'
+                            and T02_FechaBajaDepartamento is null
+                        ;
+                    FIN;
+                } else {
+                    $seleccion = <<<FIN
+                        select * from T02_Departamento
+                            where T02_DescDepartamento like '%$descDepartamento%'
+                            and T02_FechaBajaDepartamento is not null
+                        ;
+                    FIN;
+                }
+            }
+            
+            $consulta = DBPDO::ejecutarConsulta($seleccion);
+            
             $departamentos = [];
             
             while ($datos = $consulta->fetchObject()) {
@@ -96,25 +149,8 @@
                 'descDepartamento' => $descDepartamento,
                 'volumenDeNegocio' => $volumenDeNegocio
             ];
-            /*
-            $seleccion = <<<FIN
-                select * from T02_Departamento
-                    where T02_CodDepartamento = '$codDepartamento'
-                ;
-            FIN;
-            */
-            DBPDO::ejecutarConsulta($insercion, $parametros);
-            /*
-            $datos = DBPDO::ejecutarConsulta($seleccion)->fetchObject();
             
-            return new Departamento(
-                $datos->T02_CodDepartamento,
-                $datos->T02_DescDepartamento,
-                new DateTime($datos->T02_FechaCreacionDepartamento),
-                $datos->T02_VolumenDeNegocio,
-                ((is_null($datos->T02_FechaBajaDepartamento))? null : new DateTime($datos->T02_FechaBajaDepartamento))
-            );
-            */
+            DBPDO::ejecutarConsulta($insercion, $parametros);
         }
         
         /**

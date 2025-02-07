@@ -216,13 +216,19 @@ body {
                             }
             div#contenido > form#busquedaDepartamentos {
                 padding: 16px;
+                padding: 8px;
+                border-radius: 8px;
+                border: 1px solid var(--fondo3);
             }
-                div#contenido > form#busquedaDepartamentos > input[type="text"] {
-                    padding: 8px;
-                    border-radius: 8px;
-                    border: 1px solid var(--fondo3);
-                    color: var(--colorLetraC);
+                div#contenido > form#busquedaDepartamentos > div#parametrosBusqueda {
+                    
                 }
+                    div#contenido > form#busquedaDepartamentos > div#parametrosBusqueda > input[type="text"] {
+                        padding: 8px;
+                        border-radius: 8px;
+                        border: 1px solid var(--fondo3);
+                        color: var(--colorLetraC);
+                    }
         div.divRest {
             flex: 1;
         }
