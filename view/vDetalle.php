@@ -23,7 +23,7 @@
                     $contenido = '<table>';
                     foreach ($array as $clave => $valor) {
                         $contenido .= "<tr><th>$clave</th><td>";
-                        if ($valor instanceof Usuario) {
+                        if ($valor instanceof Usuario || $valor instanceof Departamento) {
                             foreach ($valor->getArrayDatos() as $key => $value) {
                                 $contenido .= $key . '=' . ($value instanceof DateTime? $value->format('Y-m-d H:i:s') : $value) . '<br>';
                             }
