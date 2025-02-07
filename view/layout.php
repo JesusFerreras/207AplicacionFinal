@@ -14,6 +14,7 @@
         <footer>
             <a href="../index.html">Jesús Ferreras González</a>
             <a href="doc/phpDoc/index.html" target="_blank">phpDoc</a>
+            <a href="doc/doxygen/html/index.html" target="_blank">Doxygen</a>
             <a href="https://www.w3schools.com/" target="_blank">Web imitada</a>
             <a href="https://github.com/JesusFerreras/207AplicacionFinal.git" target="_blank"><img src="webroot/images/github.png" alt="github"></a>
         </footer>
