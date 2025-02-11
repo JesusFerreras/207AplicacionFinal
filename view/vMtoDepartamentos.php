@@ -12,16 +12,17 @@
         <input type="submit" id="importarDepartamentos" name="importarDepartamentos" value="Importar departamentos">
     </form>
     <div id="contenido">
+        <h2>Mantenimiento de Departamentos</h2>
         <form id="busquedaDepartamentos" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
             <div id="parametrosBusqueda">
                 <label for="descDepartamento">Descripción</label>
                 <input type="text" id="descDepartamento" name="descDepartamento" <?php print(isset($_SESSION['descDepartamento'])? "value=\"{$_SESSION['descDepartamento']}\"" : ''); ?>>
                 <div id="botonesEstado">
-                    <input type="radio" id="estadoTodos" name="estadoDepartamento" value="estadoTodos" <?php print((!isset($_SESSION['estadoDepartamento']) || $_SESSION['estadoDepartamento']=='estadoTodos')? 'checked' : ''); ?>>
+                    <input type="radio" id="estadoTodos" name="estadoDepartamento" value="estadoTodos" <?php print((isset($_SESSION['estadoDepartamento']) && $_SESSION['estadoDepartamento']=='estadoTodos')? 'checked' : ''); ?>>
                     <label for="estadoTodos">Todos</label>
                     <input type="radio" id="estadoBaja" name="estadoDepartamento" value="estadoBaja" <?php print((isset($_SESSION['estadoDepartamento']) && $_SESSION['estadoDepartamento']=='estadoBaja')? 'checked' : ''); ?>>
                     <label for="estadoBaja">Dados de baja</label>
-                    <input type="radio" id="estadoAlta" name="estadoDepartamento" value="estadoAlta" <?php print((isset($_SESSION['estadoDepartamento']) && $_SESSION['estadoDepartamento']=='estadoAlta')? 'checked' : ''); ?>>
+                    <input type="radio" id="estadoAlta" name="estadoDepartamento" value="estadoAlta" <?php print((!isset($_SESSION['estadoDepartamento']) || $_SESSION['estadoDepartamento']=='estadoAlta')? 'checked' : ''); ?>>
                     <label for="estadoAlta">En activo</label>
                 </div>
             </div>

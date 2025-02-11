@@ -1,5 +1,5 @@
 <?php
-    if (!isset($_SESSION['usuarioDAW207LoginLogoffTema6'])) {
+    if (!isset($_SESSION['usuarioDAW207AplicacionFinal'])) {
         $_SESSION['paginaEnCurso'] = 'login';
         header('Location: index.php');
         exit();

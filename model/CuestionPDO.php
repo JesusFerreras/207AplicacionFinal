@@ -19,7 +19,7 @@
          * 
          * @return
          */
-        public static function buscaCuestiones() {
+        public static function buscarCuestiones() {
 
         }
         
@@ -32,7 +32,7 @@
          * 
          * @return
          */
-        public static function buscaCuestionPorCodigo() {
+        public static function buscarCuestionPorCodigo() {
 
         }
         
@@ -71,7 +71,7 @@
          * 
          * @return
          */
-        public static function modificaCuestion() {
+        public static function modificarCuestion() {
 
         }
         
@@ -84,7 +84,7 @@
          * 
          * @return
          */
-        public static function subeCuestion() {
+        public static function subirCuestion() {
 
         }
         

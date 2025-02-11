@@ -1,5 +1,5 @@
 <?php
-    if (isset($_SESSION['usuarioDAW207LoginLogoffTema6'])) {
+    if (isset($_SESSION['usuarioDAW207AplicacionFinal'])) {
         $_SESSION['paginaEnCurso'] = 'inicioPrivado';
         header('Location: index.php');
         exit();
@@ -24,7 +24,7 @@
             if ($usuario instanceof Usuario) {
                 $usuario = UsuarioPDO::registrarUltimaConexion($usuario);
 
-                $_SESSION['usuarioDAW207LoginLogoffTema6'] = $usuario;
+                $_SESSION['usuarioDAW207AplicacionFinal'] = $usuario;
                 $_SESSION['paginaEnCurso'] = 'inicioPrivado';
 
                 header('Location: index.php');

@@ -85,12 +85,36 @@
          * 
          * Función que busca un usuario por su código y lo devuelve
          * 
-         * @param    $  
+         * @param  string  $codUsuario  Código del usuario a buscar
          * 
-         * @return
+         * @return  Usuario  Usuario con el código indicado, false si no existe
          */
-        public static function buscarUsuarioPorCod() {
-
+        public static function buscarUsuarioPorCod($codUsuario) {
+            $seleccion = <<<FIN
+                select * from T01_Usuario
+                    where T01_CodUsuario = '$codUsuario'
+                ;
+            FIN;
+            
+            $consulta = DBPDO::ejecutarConsulta($seleccion);
+            
+            if($consulta->rowCount() > 0) {
+                $datos = $consulta->fetchObject();
+                
+                return new Usuario(
+                    $datos->T01_CodUsuario,
+                    $datos->T01_Password,
+                    $datos->T01_DescUsuario,
+                    $datos->T01_NumConexiones,
+                    new DateTime($datos->T01_FechaHoraUltimaConexion),
+                    null,
+                    $datos->T01_Perfil,
+                    $datos->T01_ImagenUsuario,
+                    null
+                );
+            } else {
+                return false;
+            }
         }
         
         /**
@@ -151,7 +175,7 @@
          * 
          * @return  bool  True si el código no existe, false en caso contrario
          */
-        public static function validaCodNoExiste($codUsuario) {
+        public static function validarCodNoExiste($codUsuario) {
             return (
                 DBPDO::ejecutarConsulta(<<<FIN
                     select T01_CodUsuario from T01_Usuario
@@ -162,16 +186,51 @@
         }
         
         /**
-         * Función 
+         * Función modificarUsuario
          * 
-         * Función que 
+         * Función que modifica la descripción e imagen del usuario indicado
          * 
-         * @param    $  
+         * @param  Usuario  $usuario        Usuario a modificar
+         * @param  string   $descUsuario    Nueva descripción del usuario
+         * @param           $imagenUsuario  Opcional, nueva imagen del usuario
          * 
-         * @return
+         * @return  Usuario  Usuario ya modificado
          */
-        public static function modificarUsuario() {
-
+        public static function modificarUsuario($usuario, $descUsuario, $imagenUsuario = null) {
+            $usuario->setDescUsuario($descUsuario);
+            if (!is_null($imagenUsuario)) {
+                $usuario->setImagenUsuario($imagenUsuario);
+                
+                $actualizacion = <<<FIN
+                    update T01_Usuario
+                        set T01_DescUsuario = :descUsuario,
+                        T01_ImagenUsuario = :imagenUsuario
+                        where T01_CodUsuario = :codUsuario
+                    ;
+                FIN;
+                
+                $parametros = [
+                    'codUsuario' => $usuario->getCodUsuario(),
+                    'descUsuario' => $descUsuario,
+                    'imagenUsuario' => $imagenUsuario
+                ];
+            } else {
+                $actualizacion = <<<FIN
+                    update T01_Usuario
+                        set T01_DescUsuario = :descUsuario,
+                        where T01_CodUsuario = :codUsuario
+                    ;
+                FIN;
+                
+                $parametros = [
+                    'codUsuario' => $usuario->getCodUsuario(),
+                    'descUsuario' => $descUsuario
+                ];
+            }
+            
+            DBPDO::ejecutarConsulta($actualizacion, $parametros);
+                    
+            return $usuario;
         }
         
         /**
@@ -209,7 +268,7 @@
          * 
          * @return
          */
-        public static function buscaUsuariosPorDesc() {
+        public static function buscarUsuariosPorDesc() {
 
         }
         
@@ -222,7 +281,7 @@
          * 
          * @return
          */
-        public static function creaOpinion() {
+        public static function crearOpinion() {
 
         }
         
@@ -235,7 +294,7 @@
          * 
          * @return
          */
-        public static function modificaOpinion() {
+        public static function modificarOpinion() {
 
         }
         
@@ -248,7 +307,7 @@
          * 
          * @return
          */
-        public static function borraOpinion() {
+        public static function borrarOpinion() {
 
         }
         

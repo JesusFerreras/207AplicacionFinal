@@ -1,4 +1,10 @@
 <?php
+    if (!isset($_SESSION['usuarioDAW207AplicacionFinal'])) {
+        $_SESSION['paginaEnCurso'] = 'login';
+        header('Location: index.php');
+        exit();
+    }
+    
     if (isset($_REQUEST['volver'])) {
         $_SESSION['paginaEnCurso'] = 'mtoDepartamentos';
         header('Location: index.php');
@@ -9,7 +15,7 @@
         $formularioValido = true;
         
         $mensajesError = [
-            'codDepartamento' => ((preg_match('/^[A-Z]{3}$/', $_REQUEST['codDepartamento']) == 0)? 'El código debe ser 3 letras mayúsculas' : '') . (DepartamentoPDO::validaCodNoExiste($_REQUEST['codDepartamento'])? '' : 'El código ya existe'),
+            'codDepartamento' => ((preg_match('/^[A-Z]{3}$/', $_REQUEST['codDepartamento']) == 0)? 'El código debe ser 3 letras mayúsculas' : '') . (DepartamentoPDO::validarCodNoExiste($_REQUEST['codDepartamento'])? '' : 'El código ya existe'),
             'descDepartamento' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['descDepartamento'], 255, 1, 1),
             'volumenDeNegocio' => validacionFormularios::comprobarFloat($_REQUEST['volumenDeNegocio'], PHP_FLOAT_MAX, 0, 1)
         ];

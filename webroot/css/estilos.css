@@ -97,8 +97,21 @@ body {
             background-color: var(--fondo1);
         }
         header > form {
-
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+            header > form > input[type="image"] {
+                box-sizing: content-box;
+                width: 32px;
+                height: 32px;
+                border-radius: 100%;
+                margin: 2px;
+            }
+            header > form > input[type="image"]:hover {
+                margin: 0;
+                border: 2px solid var(--colorAcento);
+            }
             header > form > input[type="submit"] {
                 padding: 8px 16px;
                 border-radius: 16px;
@@ -149,16 +162,24 @@ body {
                 width: 100%;
                 margin: 16px 0;
             }
-            form#datos > input[type="text"],
-            form#datos > input[type="password"],
-            form#datos > input[type="datetime-local"] {
+            form#datos  input[type="text"],
+            form#datos  input[type="password"],
+            form#datos  input[type="datetime-local"] {
                 padding: 8px;
                 border-radius: 8px;
                 border: 1px solid var(--fondo3);
                 color: var(--colorLetraC);
             }
+            form#datos > div {
+                display: flex;
+                align-items: center;
+            }
                 form#datos > div > * {
                     width: 100%;
+                }
+                form#datos > div > img {
+                    width: 64px;
+                    height: 64px;
                 }
                 form#datos  input[type="submit"] {
                     padding: 8px 16px;

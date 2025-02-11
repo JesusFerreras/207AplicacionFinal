@@ -1,5 +1,5 @@
 <?php
-    if (isset($_SESSION['usuarioDAW207LoginLogoffTema6'])) {
+    if (isset($_SESSION['usuarioDAW207AplicacionFinal'])) {
         $_SESSION['paginaEnCurso'] = 'inicioPrivado';
         header('Location: index.php');
         exit();
@@ -15,7 +15,7 @@
         $formularioValido = true;
         
         $mensajesError = [
-            'codUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['codUsuario'], 255, 1, 1) . UsuarioPDO::validaCodNoExiste($_REQUEST['codUsuario'])? '' : 'El usuario ya existe',
+            'codUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['codUsuario'], 255, 1, 1) . UsuarioPDO::validarCodNoExiste($_REQUEST['codUsuario'])? '' : 'El usuario ya existe',
             'descUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['descUsuario'], 255, 1, 1),
             'password' => ''
         ];
@@ -33,7 +33,7 @@
             if ($usuario instanceof Usuario) {
                 $usuario = UsuarioPDO::registrarUltimaConexion($usuario);
 
-                $_SESSION['usuarioDAW207LoginLogoffTema6'] = $usuario;
+                $_SESSION['usuarioDAW207AplicacionFinal'] = $usuario;
                 $_SESSION['paginaEnCurso'] = 'inicioPrivado';
 
                 header('Location: index.php');

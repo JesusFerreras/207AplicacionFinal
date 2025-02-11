@@ -1,4 +1,10 @@
 <?php
+    if (!isset($_SESSION['usuarioDAW207AplicacionFinal'])) {
+        $_SESSION['paginaEnCurso'] = 'login';
+        header('Location: index.php');
+        exit();
+    }
+    
     $erroresTiempo = null;
 
     if (isset($_REQUEST['volver'])) {
@@ -15,12 +21,20 @@
         }
     }
     
+    if (isset($_REQUEST['ubicacionTiempo']) && (new DateTime('now') >= new DateTime($_REQUEST['fechaNasa']))) {
+        $_SESSION['fechaNasa'] = $_REQUEST['fechaNasa'];
+    }
+    
     if (isset($_REQUEST['pedirTiempo'])) {
         $erroresTiempo['latitud'] = validacionFormularios::comprobarFloat($_REQUEST['latitud'], 90, -90, 1);
         $erroresTiempo['longitud'] = validacionFormularios::comprobarFloat($_REQUEST['longitud'], 180, -180, 1);
         
         if (empty($erroresTiempo['latitud']) && empty($erroresTiempo['longitud'])) {
-            $datosTiempo = (REST::apiMeteosource($_REQUEST['latitud'], $_REQUEST['longitud']))->getArrayDatos();
+            $_SESSION['ubicacionTiempo'] = [
+                'latitud' => $_REQUEST['latitud'],
+                'longitud' => $_REQUEST['longitud']
+            ];
+            $datosTiempo = (REST::apiMeteosource($_SESSION['ubicacionTiempo']['latitud'], $_SESSION['ubicacionTiempo']['longitud']))->getArrayDatos();
         }
     }
     

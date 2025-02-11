@@ -1,12 +1,12 @@
 <?php
-    $clavesRequest = array_keys($_REQUEST);
-    /*
-    $numMaxRegistros = 5;
-    $numPaginas = ceil(DepartamentoPDO::numeroDepartamentos() / $numMaxRegistros);
-    if (!isset($_SESSION['numPagina'])) {
-        $_SESSION['numPagina'] = 0;
+    if (!isset($_SESSION['usuarioDAW207AplicacionFinal'])) {
+        $_SESSION['paginaEnCurso'] = 'login';
+        header('Location: index.php');
+        exit();
     }
-    */
+    
+    $clavesRequest = array_keys($_REQUEST);
+    
     if ($resultado = preg_grep('/^modificar[A-Z]{3}$/', $clavesRequest)) {
         $_SESSION['codDepartamentoEnCurso'] = substr($resultado[0], -3);
         $_SESSION['paginaEnCurso'] = 'consultarModificarDepartamento';
@@ -28,7 +28,7 @@
     }
     
     if ($resultado = preg_grep('/^rehabilitar[A-Z]{3}$/', $clavesRequest)) {
-        DepartamentoPDO::rehabilitaDepartamento(substr($resultado[0], -3));
+        DepartamentoPDO::rehabilitarDepartamento(substr($resultado[0], -3));
         header('Location: index.php');
         exit();
     }
@@ -50,7 +50,7 @@
     
     if (isset($_REQUEST['exportarDepartamentos'])) {
         $datosDepartamentosJson = [];
-        $departamentosJson = DepartamentoPDO::buscaDepartamentosPorDesc('');
+        $departamentosJson = DepartamentoPDO::buscarDepartamentosPorDesc('');
         foreach ($departamentosJson as $valor) {
             array_push($datosDepartamentosJson, $valor->getArrayDatos());
         }
@@ -80,14 +80,22 @@
     
     if (isset($_REQUEST['buscarDepartamento'])) {
         $_SESSION['descDepartamento'] = $_REQUEST['descDepartamento'];
-        $_SESSION['estadoDepartamento'] = $_REQUEST['estadoDepartamento'];
+        $_SESSION['estadoDepartamento'] = is_null($_REQUEST['estadoDepartamento'])? null : ($_REQUEST['estadoDepartamento'] == 'estadoAlta');
     }
+    
+    
+    if (!isset($_SESSION['numPagina'])) {
+        $_SESSION['numPagina'] = 0;
+    }
+    
+    $numMaxRegistros = 5;
+    $numPaginas = ceil(DepartamentoPDO::numDepartamentos() / $numMaxRegistros);
     
     $datosDepartamentos = [];
     if (!isset($_SESSION['estadoDepartamento']) || ($_SESSION['estadoDepartamento'] == 'estadoTodos')) {
-        $departamentos = DepartamentoPDO::buscaDepartamentosPorDesc(isset($_SESSION['descDepartamento'])? $_SESSION['descDepartamento'] : '');
+        $departamentos = DepartamentoPDO::buscarDepartamentosPorDescYEstado(isset($_SESSION['descDepartamento'])? $_SESSION['descDepartamento'] : '', true, $numMaxRegistros, );
     } else {
-        $departamentos = DepartamentoPDO::buscaDepartamentosPorDescYEstado((isset($_SESSION['descDepartamento'])? $_SESSION['descDepartamento'] : ''), ($_SESSION['estadoDepartamento'] == 'estadoAlta'));
+        $departamentos = DepartamentoPDO::buscarDepartamentosPorDescYEstado((isset($_SESSION['descDepartamento'])? $_SESSION['descDepartamento'] : ''), $_SESSION['estadoDepartamento']);
     }
     
     foreach ($departamentos as $valor) {

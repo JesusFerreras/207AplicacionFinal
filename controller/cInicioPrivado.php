@@ -1,12 +1,12 @@
 <?php
-    if (!isset($_SESSION['usuarioDAW207LoginLogoffTema6'])) {
+    if (!isset($_SESSION['usuarioDAW207AplicacionFinal'])) {
         $_SESSION['paginaEnCurso'] = 'login';
         header('Location: index.php');
         exit();
     }
     
-    if (isset($_REQUEST['miCuenta'])) {
-        $_SESSION['paginaEnCurso'] = 'wip';
+    if (isset($_REQUEST['miCuenta_x']) && isset($_REQUEST['miCuenta_y'])) {
+        $_SESSION['paginaEnCurso'] = 'miCuenta';
         header('Location: index.php');
         exit();
     }
@@ -46,7 +46,7 @@
         exit();
     }
     
-    $datosUsuario = $_SESSION['usuarioDAW207LoginLogoffTema6']->getArrayDatos();
+    $datosUsuario = $_SESSION['usuarioDAW207AplicacionFinal']->getArrayDatos();
     
     require_once $view['layout'];
 ?>
