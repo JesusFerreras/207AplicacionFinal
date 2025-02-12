@@ -82,33 +82,18 @@
         /**
          * Función buscarDepartamentosPorDescYEstado
          * 
-         * Función que busca los departamentos cuya descripción contenga la cadena indicada y cuyo estado sea el indicado (true en activo, false en baja y null todos) y los devuelve como array numérico
+         * Función que busca los departamentos cuya descripción contenga la cadena indicada y cuyo estado sea el indicado (0 si está en baja, 1 si está en activo y 2 todos) y los devuelve como array numérico
          * 
          * @param  string  $descDepartamento    Descripción completa o no de los departamentos a buscar
-         * @param  bool    $estadoDepartamento  Estado en el que se encuentra el departamento: true si está en activo, false si está en baja y null todos
+         * @param  int     $estadoDepartamento  Estado en el que se encuentra el departamento: 0 si está en baja, 1 si está en activo y 2 todos
          * @param  int     $limit               Número de registros que se devuelven
          * @param  int     $offset              Posición a partir de la cual se empiezan a contar los registros
          * 
          * @return  Departamento[]  Array numérico con los departamentos encontrados
          */
         public static function buscarDepartamentosPorDescYEstado($descDepartamento, $estadoDepartamento, $limit, $offset) {
-            if (is_null($estadoDepartamento)) {
-                $seleccion = <<<FIN
-                    select * from T02_Departamento
-                        where T02_DescDepartamento like '%$descDepartamento%'
-                        limit $limit offset $offset
-                    ;
-                FIN;
-            } else {
-                if ($estadoDepartamento) {
-                    $seleccion = <<<FIN
-                        select * from T02_Departamento
-                            where T02_DescDepartamento like '%$descDepartamento%'
-                            and T02_FechaBajaDepartamento is null
-                            limit $limit offset $offset
-                        ;
-                    FIN;
-                } else {
+            switch ($estadoDepartamento) {
+                case 0:
                     $seleccion = <<<FIN
                         select * from T02_Departamento
                             where T02_DescDepartamento like '%$descDepartamento%'
@@ -116,7 +101,24 @@
                             limit $limit offset $offset
                         ;
                     FIN;
-                }
+                break;
+                case 1:
+                    $seleccion = <<<FIN
+                        select * from T02_Departamento
+                            where T02_DescDepartamento like '%$descDepartamento%'
+                            and T02_FechaBajaDepartamento is null
+                            limit $limit offset $offset
+                        ;
+                    FIN;
+                break;
+                default:
+                    $seleccion = <<<FIN
+                        select * from T02_Departamento
+                            where T02_DescDepartamento like '%$descDepartamento%'
+                            limit $limit offset $offset
+                        ;
+                    FIN;
+                break;
             }
             
             $consulta = DBPDO::ejecutarConsulta($seleccion);
@@ -281,36 +283,38 @@
         /**
          * Función numDepartamentos
          * 
-         * Función que devuelve el número de departamentos cuya descripción contenga la cadena indicada y cuyo estado sea el indicado (true en activo, false en baja y null todos)
+         * Función que devuelve el número de departamentos cuya descripción contenga la cadena indicada y cuyo estado sea el indicado (0 si está en baja, 1 si está en activo y 2 todos)
          * 
          * @param  string  $descDepartamento    Descripción completa o no de los departamentos a buscar
-         * @param  bool    $estadoDepartamento  Estado en el que se encuentra el departamento: true si está en activo, false en caso contrario
+         * @param  int     $estadoDepartamento  Estado en el que se encuentra el departamento: 0 si está en baja, 1 si está en activo y 2 todos
          * 
          * @return  int  Número de departamentos con las características indicadas
          */
-        public static function numDepartamentos($descDepartamento, $estadoDepartamento = null) {
-            if (is_null($estadoDepartamento)) {
-                $seleccion = <<<FIN
-                    select count(*) from T02_Departamento
-                        where T02_DescDepartamento like '%$descDepartamento%'
-                    ;
-                FIN;
-            } else {
-                if ($estadoDepartamento) {
-                    $seleccion = <<<FIN
-                        select count(*) from T02_Departamento
-                            where T02_DescDepartamento like '%$descDepartamento%'
-                            and T02_FechaBajaDepartamento is null
-                        ;
-                    FIN;
-                } else {
+        public static function numDepartamentos($descDepartamento, $estadoDepartamento) {
+            switch ($estadoDepartamento) {
+                case 0:
                     $seleccion = <<<FIN
                         select count(*) from T02_Departamento
                             where T02_DescDepartamento like '%$descDepartamento%'
                             and T02_FechaBajaDepartamento is not null
                         ;
                     FIN;
-                }
+                break;
+                case 1:
+                    $seleccion = <<<FIN
+                        select count(*) from T02_Departamento
+                            where T02_DescDepartamento like '%$descDepartamento%'
+                            and T02_FechaBajaDepartamento is null
+                        ;
+                    FIN;
+                break;
+                default:
+                    $seleccion = <<<FIN
+                        select count(*) from T02_Departamento
+                            where T02_DescDepartamento like '%$descDepartamento%'
+                        ;
+                    FIN;
+                break;
             }
             
             return DBPDO::ejecutarConsulta($seleccion)->fetch()[0];

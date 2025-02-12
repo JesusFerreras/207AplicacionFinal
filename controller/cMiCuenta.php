@@ -28,7 +28,8 @@
         }
         
         if ($formularioValido) {
-            $_SESSION['usuarioDAW207AplicacionFinal'] = UsuarioPDO::modificarUsuario($_SESSION['usuarioDAW207AplicacionFinal'], $_REQUEST['descUsuario'], addslashes(file_get_contents($_FILES['imagenUsuario']['tmp_name'])));
+            print_r($_REQUEST);
+            $_SESSION['usuarioDAW207AplicacionFinal'] = UsuarioPDO::modificarUsuario($_SESSION['usuarioDAW207AplicacionFinal'], $_REQUEST['descUsuario'], (is_uploaded_file($_FILES['imagenUsuario']['tmp_name'])? addslashes(file_get_contents($_FILES['imagenUsuario']['tmp_name'])) : null));
 
             $_SESSION['paginaEnCurso'] = 'inicioPrivado';
             header('Location: index.php');

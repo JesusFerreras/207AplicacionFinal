@@ -2,7 +2,7 @@
     <h1>Aplicación Final</h1>
     <button id="cambioTema">&#x25D1;</button>
     <form action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
-        <input type="image" src="<?php print(is_null($datosUsuario['imagenUsuario'])? 'webroot/images/imagenUsuarioBase.png' : base64_encode($datosUsuario['imagenUsuario'])); ?>" alt="Mi Cuenta" id="miCuenta" name="miCuenta" > 
+        <input type="image" src="<?php print(is_null($datosUsuario['imagenUsuario'])? 'webroot/images/imagenUsuarioBase.png' : 'data:image/jpeg;charset=utf8;base64,'.base64_encode(stripslashes($datosUsuario['imagenUsuario']))); ?>" alt="Mi Cuenta" id="miCuenta" name="miCuenta" > 
         <input type="submit" id="cerrarSesion" name="cerrarSesion" value="Cerrar Sesión">
     </form>
 </header>

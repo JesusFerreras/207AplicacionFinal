@@ -80,7 +80,17 @@
     
     if (isset($_REQUEST['buscarDepartamento'])) {
         $_SESSION['descDepartamento'] = $_REQUEST['descDepartamento'];
-        $_SESSION['estadoDepartamento'] = is_null($_REQUEST['estadoDepartamento'])? null : ($_REQUEST['estadoDepartamento'] == 'estadoAlta');
+        switch ($_REQUEST['estadoDepartamento']) {
+            case 'estadoBaja':
+                $_SESSION['estadoDepartamento'] = 0;
+            break;
+            case 'estadoAlta':
+                $_SESSION['estadoDepartamento'] = 1;
+            break;
+            default:
+                $_SESSION['estadoDepartamento'] = 2;
+            break;
+        }
     }
     
     
@@ -88,15 +98,35 @@
         $_SESSION['numPagina'] = 0;
     }
     
-    $numMaxRegistros = 5;
-    $numPaginas = ceil(DepartamentoPDO::numDepartamentos() / $numMaxRegistros);
-    
-    $datosDepartamentos = [];
-    if (!isset($_SESSION['estadoDepartamento']) || ($_SESSION['estadoDepartamento'] == 'estadoTodos')) {
-        $departamentos = DepartamentoPDO::buscarDepartamentosPorDescYEstado(isset($_SESSION['descDepartamento'])? $_SESSION['descDepartamento'] : '', true, $numMaxRegistros, );
-    } else {
-        $departamentos = DepartamentoPDO::buscarDepartamentosPorDescYEstado((isset($_SESSION['descDepartamento'])? $_SESSION['descDepartamento'] : ''), $_SESSION['estadoDepartamento']);
+    if (!isset($_SESSION['estadoDepartamento'])) {
+        $_SESSION['estadoDepartamento'] = 1;
     }
+    
+    if (!isset($_SESSION['descDepartamento'])) {
+        $_SESSION['descDepartamento'] = '';
+    }
+    
+    $numMaxRegistros = 5;
+    $numPaginas = ceil(DepartamentoPDO::numDepartamentos($_SESSION['descDepartamento'], $_SESSION['estadoDepartamento']) / $numMaxRegistros);
+    
+    
+    if (isset($_REQUEST['paginaPrimera'])) {
+        $_SESSION['numPagina'] = 0;
+    }
+    
+    if (isset($_REQUEST['paginaAnterior'])) {
+        $_SESSION['numPagina'] = max(0, $_SESSION['numPagina']-1);
+    }
+    
+    if (isset($_REQUEST['paginaSiguiente'])) {
+        $_SESSION['numPagina'] = min($numPaginas-1, $_SESSION['numPagina']+1);
+    }
+    
+    if (isset($_REQUEST['paginaUltima'])) {
+        $_SESSION['numPagina'] = $numPaginas-1;
+    }
+    $datosDepartamentos = [];
+    $departamentos = DepartamentoPDO::buscarDepartamentosPorDescYEstado($_SESSION['descDepartamento'], $_SESSION['estadoDepartamento'], $numMaxRegistros, $_SESSION['numPagina']*$numMaxRegistros);
     
     foreach ($departamentos as $valor) {
         array_push($datosDepartamentos, $valor->getArrayDatos());

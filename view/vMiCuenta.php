@@ -21,9 +21,9 @@
         <input type="datetime-local" id="fechaHoraUltimaConexion" name="fechaHoraUltimaConexion" <?php print('value="'.date_format($datosUsuario['fechaHoraUltimaConexionAnterior'], 'Y-m-d\TH:i').'"'); ?> disabled>
         <label for="perfil">Perfil</label>
         <input type="text" id="perfil" name="perfil" value="<?php print($datosUsuario['perfil']); ?>" disabled>
-        <label for="perfil">Imagen</label>
+        <label for="imagenUsuario">Imagen</label>
         <div>
-            <img src="<?php print(is_null($datosUsuario['imagenUsuario'])? 'webroot/images/imagenUsuarioBase.png' : 'data:image/jpg;charset=utf8;base64,'.base64_encode($datosUsuario['imagenUsuario'])); ?>" alt="imagenUsuario"/>
+            <img src="<?php print(is_null($datosUsuario['imagenUsuario'])? 'webroot/images/imagenUsuarioBase.png' : 'data:image/jpg;charset=utf8;base64,'.base64_encode(stripslashes($datosUsuario['imagenUsuario']))); ?>" alt="imagenUsuario"/>
             <input type="file" id="imagenUsuario" name="imagenUsuario">
         </div>
         <?php print(isset($mensajesError['imagenUsuario'])? "<p class=\"error\">{$mensajesError['imagenUsuario']}</p>" : ''); ?>

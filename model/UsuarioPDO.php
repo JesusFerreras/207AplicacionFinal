@@ -125,11 +125,11 @@
          * @param  string  $codUsuario     Código del usuario
          * @param  string  $password       Contraseña del usuario
          * @param  string  $descUsuario    Descripción del usuario
-         * @param          $imagenUsuario  Opcional, imagen del usuario
+         * @param  string  $imagenUsuario  Opcional, imagen del usuario
          * 
          * @return  Usuario  Usuario ya dado de alta
          */
-        public static function altaUsuario($codUsuario, $password, $descUsuario, $imagenUsuario = null) {
+        public static function altaUsuario($codUsuario, $password, $descUsuario, $imagenUsuario) {
             $insercion = <<<FIN
                 insert into T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario, T01_ImagenUsuario) values
                     (:codUsuario, sha2(:contrasena, 256), :descUsuario, :imagenUsuario)
@@ -192,11 +192,11 @@
          * 
          * @param  Usuario  $usuario        Usuario a modificar
          * @param  string   $descUsuario    Nueva descripción del usuario
-         * @param           $imagenUsuario  Opcional, nueva imagen del usuario
+         * @param  string   $imagenUsuario  Opcional, nueva imagen del usuario
          * 
          * @return  Usuario  Usuario ya modificado
          */
-        public static function modificarUsuario($usuario, $descUsuario, $imagenUsuario = null) {
+        public static function modificarUsuario($usuario, $descUsuario, $imagenUsuario) {
             $usuario->setDescUsuario($descUsuario);
             if (!is_null($imagenUsuario)) {
                 $usuario->setImagenUsuario($imagenUsuario);
@@ -217,7 +217,7 @@
             } else {
                 $actualizacion = <<<FIN
                     update T01_Usuario
-                        set T01_DescUsuario = :descUsuario,
+                        set T01_DescUsuario = :descUsuario
                         where T01_CodUsuario = :codUsuario
                     ;
                 FIN;

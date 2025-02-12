@@ -19,6 +19,9 @@
             'descUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['descUsuario'], 255, 1, 1),
             'password' => ''
         ];
+        if (isset($_FILES['imagenUsuario'])){
+            $mensajesError['imagenUsuario'] = validacionFormularios::validarNombreArchivo($_FILES['imagenUsuario']['name'], ['jpg', 'png']);
+        }
         
         foreach ($mensajesError as $valor) {
             if (!empty($valor)) {
@@ -28,7 +31,7 @@
         }
         
         if ($formularioValido) {
-            $usuario = UsuarioPDO::altaUsuario($_REQUEST['codUsuario'], $_REQUEST['password'], $_REQUEST['descUsuario']);
+            $usuario = UsuarioPDO::altaUsuario($_REQUEST['codUsuario'], $_REQUEST['password'], $_REQUEST['descUsuario'], (is_uploaded_file($_FILES['imagenUsuario']['tmp_name'])? addslashes(file_get_contents($_FILES['imagenUsuario']['tmp_name'])) : null));
 
             if ($usuario instanceof Usuario) {
                 $usuario = UsuarioPDO::registrarUltimaConexion($usuario);
