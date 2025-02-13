@@ -18,11 +18,11 @@
                 <label for="descDepartamento">Descripción</label>
                 <input type="text" id="descDepartamento" name="descDepartamento" value="<?php print($_SESSION['descDepartamento']); ?>">
                 <div id="botonesEstado">
-                    <input type="radio" id="estadoTodos" name="estadoDepartamento" value="estadoTodos" <?php print(is_null($_SESSION['estadoDepartamento'])? 'checked' : ''); ?>>
+                    <input type="radio" id="estadoTodos" name="estadoDepartamento" value="estadoTodos" <?php print($_SESSION['estadoDepartamento'] == 2? 'checked' : ''); ?>>
                     <label for="estadoTodos">Todos</label>
-                    <input type="radio" id="estadoBaja" name="estadoDepartamento" value="estadoBaja" <?php print($_SESSION['estadoDepartamento']? 'checked' : ''); ?>>
+                    <input type="radio" id="estadoBaja" name="estadoDepartamento" value="estadoBaja" <?php print($_SESSION['estadoDepartamento'] == 0? 'checked' : ''); ?>>
                     <label for="estadoBaja">Dados de baja</label>
-                    <input type="radio" id="estadoAlta" name="estadoDepartamento" value="estadoAlta" <?php print($_SESSION['estadoDepartamento']? 'checked' : ''); ?>>
+                    <input type="radio" id="estadoAlta" name="estadoDepartamento" value="estadoAlta" <?php print($_SESSION['estadoDepartamento'] == 1? 'checked' : ''); ?>>
                     <label for="estadoAlta">En activo</label>
                 </div>
             </div>

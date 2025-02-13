@@ -125,7 +125,7 @@
          * @param  string  $codUsuario     Código del usuario
          * @param  string  $password       Contraseña del usuario
          * @param  string  $descUsuario    Descripción del usuario
-         * @param  string  $imagenUsuario  Opcional, imagen del usuario
+         * @param  string  $imagenUsuario  Imagen del usuario
          * 
          * @return  Usuario  Usuario ya dado de alta
          */
@@ -192,41 +192,37 @@
          * 
          * @param  Usuario  $usuario        Usuario a modificar
          * @param  string   $descUsuario    Nueva descripción del usuario
-         * @param  string   $imagenUsuario  Opcional, nueva imagen del usuario
+         * @param  string   $imagenUsuario  Nueva imagen del usuario
+         * @param  string   $perfil         Opcional, nuevo perfil del usuario ('administrador' o 'usuario')
          * 
          * @return  Usuario  Usuario ya modificado
          */
-        public static function modificarUsuario($usuario, $descUsuario, $imagenUsuario) {
+        public static function modificarUsuario($usuario, $descUsuario, $imagenUsuario, $perfil = null) {
             $usuario->setDescUsuario($descUsuario);
+            
+            $actualizacion = 'update T01_Usuario set T01_DescUsuario = :descUsuario';
+            
+            $parametros = [
+                'codUsuario' => $usuario->getCodUsuario(),
+                'descUsuario' => $descUsuario
+            ];
+            
             if (!is_null($imagenUsuario)) {
                 $usuario->setImagenUsuario($imagenUsuario);
                 
-                $actualizacion = <<<FIN
-                    update T01_Usuario
-                        set T01_DescUsuario = :descUsuario,
-                        T01_ImagenUsuario = :imagenUsuario
-                        where T01_CodUsuario = :codUsuario
-                    ;
-                FIN;
+                $actualizacion .= ', T01_ImagenUsuario = :imagenUsuario';
                 
-                $parametros = [
-                    'codUsuario' => $usuario->getCodUsuario(),
-                    'descUsuario' => $descUsuario,
-                    'imagenUsuario' => $imagenUsuario
-                ];
-            } else {
-                $actualizacion = <<<FIN
-                    update T01_Usuario
-                        set T01_DescUsuario = :descUsuario
-                        where T01_CodUsuario = :codUsuario
-                    ;
-                FIN;
-                
-                $parametros = [
-                    'codUsuario' => $usuario->getCodUsuario(),
-                    'descUsuario' => $descUsuario
-                ];
+                $parametros['imagenUsuario'] = $imagenUsuario;
             }
+            if (!is_null($perfil)) {
+                $usuario->setPerfil($perfil);
+                
+                $actualizacion .= ', T01_Perfil = :perfil';
+                
+                $parametros['perfil'] = $perfil;
+            }
+            
+            $actualizacion .= ' where T01_CodUsuario = :codUsuario';
             
             DBPDO::ejecutarConsulta($actualizacion, $parametros);
                     
@@ -234,42 +230,92 @@
         }
         
         /**
-         * Función 
+         * Función cambiarPassword
          * 
-         * Función que 
+         * Función que modifica la contraseña del usuario por la indicada
          * 
          * @param    $  
          * 
-         * @return
+         * @return  Usuario  Usuario ya modificado
          */
         public static function cambiarPassword() {
 
         }
         
         /**
-         * Función 
+         * Función borrarUsuario
          * 
-         * Función que 
+         * Función que elimina el usuario indicado
          * 
-         * @param    $  
-         * 
-         * @return
+         * @param  string  $codUsuario  Codigo del usuario a borrar
          */
-        public static function borrarUsuario() {
-
+        public static function borrarUsuario($codUsuario) {
+            $borrado = <<<FIN
+                delete from T01_Usuario
+                    where T01_CodUsuario = '$codUsuario'
+                ;
+            FIN;
+            
+            DBPDO::ejecutarConsulta($borrado);
         }
         
         /**
-         * Función 
+         * Función buscarUsuariosPorDesc
          * 
-         * Función que 
+         * Función que busca los usuarios cuya descripción contenga la cadena indicada y los devuelve como array numérico
          * 
-         * @param    $  
+         * @param  string  $descUsuario  Descripción completa o no de los usuarios a buscar
+         * @param  int     $limit        Número de registros que se devuelven
+         * @param  int     $offset       Posición a partir de la cual se empiezan a contar los registros
          * 
-         * @return
+         * @return  Usuario[]  Array numérico con los usuarios encontrados
          */
-        public static function buscarUsuariosPorDesc() {
-
+        public static function buscarUsuariosPorDesc($descUsuario, $limit, $offset) {
+            $seleccion = <<<FIN
+                select * from T01_Usuario
+                    where T01_DescUsuario like '%$descUsuario%'
+                    limit $limit offset $offset
+                ;
+            FIN;
+            
+            $consulta = DBPDO::ejecutarConsulta($seleccion);
+            
+            $usuarios = [];
+            
+            while ($datos = $consulta->fetchObject()) {
+                array_push($usuarios, new Usuario(
+                    $datos->T01_CodUsuario,
+                    $datos->T01_Password,
+                    $datos->T01_DescUsuario,
+                    $datos->T01_NumConexiones,
+                    new DateTime($datos->T01_FechaHoraUltimaConexion),
+                    null,
+                    $datos->T01_Perfil,
+                    $datos->T01_ImagenUsuario,
+                    null
+                ));
+            }
+            
+            return $usuarios;
+        }
+        
+        /**
+         * Función numUsuarios
+         * 
+         * Función que devuelve el número de usuarios cuya descripción contenga la cadena indicada
+         * 
+         * @param  string  $descUsuario  Descripción completa o no de los usuarios a buscar
+         * 
+         * @return  int  Número de usuarios con las características indicadas
+         */
+        public static function numUsuarios($descUsuario) {
+            $seleccion = <<<FIN
+                select count(*) from T01_Usuario
+                    where T01_DescUsuario like '%$descUsuario%'
+                ;
+            FIN;
+            
+            return DBPDO::ejecutarConsulta($seleccion)->fetch()[0];
         }
         
         /**

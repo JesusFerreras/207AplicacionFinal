@@ -17,8 +17,8 @@
         exit();
     }
     
-    if (isset($_REQUEST['miCuenta'])) {
-        $_SESSION['paginaEnCurso'] = 'wip';
+    if (isset($_REQUEST['mtoUsuarios'])) {
+        $_SESSION['paginaEnCurso'] = 'mtoUsuarios';
         header('Location: index.php');
         exit();
     }

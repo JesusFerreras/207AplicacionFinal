@@ -19,7 +19,7 @@
             'descUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['descUsuario'], 255, 1, 1),
             'password' => ''
         ];
-        if (isset($_FILES['imagenUsuario'])){
+        if (is_uploaded_file($_FILES['imagenUsuario']['tmp_name'])){
             $mensajesError['imagenUsuario'] = validacionFormularios::validarNombreArchivo($_FILES['imagenUsuario']['name'], ['jpg', 'png']);
         }
         
