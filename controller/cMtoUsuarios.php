@@ -31,6 +31,7 @@
     
     if (isset($_REQUEST['buscarUsuario'])) {
         $_SESSION['descUsuario'] = $_REQUEST['descUsuario'];
+        unset($_SESSION['numPagina']);
     }
     
     

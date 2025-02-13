@@ -91,6 +91,7 @@
                 $_SESSION['estadoDepartamento'] = 2;
             break;
         }
+        unset($_SESSION['numPagina']);
     }
     
     
