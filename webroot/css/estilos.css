@@ -56,7 +56,8 @@ body.oscuro {
 a:hover, a:active {
     color: var(--colorAcento);
 }
-input[required] {
+input[required],
+select[required] {
     background-color: var(--amarilloC);
 }
 p.error {
@@ -97,8 +98,21 @@ body {
             background-color: var(--fondo1);
         }
         header > form {
-
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+            header > form > input[type="image"] {
+                box-sizing: content-box;
+                width: 32px;
+                height: 32px;
+                border-radius: 100%;
+                margin: 2px;
+            }
+            header > form > input[type="image"]:hover {
+                margin: 0;
+                border: 2px solid var(--colorAcento);
+            }
             header > form > input[type="submit"] {
                 padding: 8px 16px;
                 border-radius: 16px;
@@ -149,16 +163,25 @@ body {
                 width: 100%;
                 margin: 16px 0;
             }
-            form#datos > input[type="text"],
-            form#datos > input[type="password"],
-            form#datos > input[type="datetime-local"] {
+            form#datos  input[type="text"],
+            form#datos  input[type="password"],
+            form#datos  input[type="datetime-local"],
+            form#datos  select {
                 padding: 8px;
                 border-radius: 8px;
                 border: 1px solid var(--fondo3);
                 color: var(--colorLetraC);
             }
+            form#datos > div {
+                display: flex;
+                align-items: center;
+            }
                 form#datos > div > * {
                     width: 100%;
+                }
+                form#datos > div > img {
+                    width: 64px;
+                    height: 64px;
                 }
                 form#datos  input[type="submit"] {
                     padding: 8px 16px;
@@ -170,8 +193,7 @@ body {
                     background-color: var(--colorAcentoO);
                 }
         div#contenido {
-            padding: 8px;
-            padding-right: 32px;
+            padding: 8px 32px;
             flex: 1;
         }
             div#contenido > table {
@@ -198,32 +220,44 @@ body {
                     div#contenido > table  td {
                         
                     }
-                        div#contenido > table  td > form.accionDepartamento {
+                        div#contenido > table  td > form.accionDepartamento,
+                        div#contenido > table  td > form.accionUsuario {
                             display: flex;
                             justify-content: space-evenly;
                             align-items: center;
                         }
-                            div#contenido > table  td > form.accionDepartamento > input {
+                            div#contenido > table  td > form.accionDepartamento > input,
+                            div#contenido > table  td > form.accionUsuario > input {
                                 border-radius: 25%;
                                 background: none;
                                 font-size: large;
                             }
-                            div#contenido > table tr:nth-of-type(2n) > td > form.accionDepartamento > input:hover {
+                            div#contenido > table tr:nth-of-type(2n) > td > form.accionDepartamento > input:hover,
+                            div#contenido > table tr:nth-of-type(2n) > td > form.accionUsuario > input:hover {
                                 background-color: var(--fondo1);
                             }
-                            div#contenido > table tr:nth-of-type(2n+1) > td > form.accionDepartamento > input:hover {
+                            div#contenido > table tr:nth-of-type(2n+1) > td > form.accionDepartamento > input:hover,
+                            div#contenido > table tr:nth-of-type(2n+1) > td > form.accionUsuario > input:hover {
                                 background-color: var(--fondo3);
                             }
-            div#contenido > form#busquedaDepartamentos {
+                        div#contenido > table  td > img {
+                            width: 32px;
+                            height: 32px;
+                            border-radius: 100%;
+                        }
+            div#contenido > form#busquedaDepartamentos,
+            div#contenido > form#busquedaUsuarios {
                 padding: 16px;
                 padding: 8px;
                 border-radius: 8px;
                 border: 1px solid var(--fondo3);
             }
-                div#contenido > form#busquedaDepartamentos > div#parametrosBusqueda {
+                div#contenido > form#busquedaDepartamentos > div#parametrosBusqueda,
+                div#contenido > form#busquedaUsuarios > div#parametrosBusqueda {
                     
                 }
-                    div#contenido > form#busquedaDepartamentos > div#parametrosBusqueda > input[type="text"] {
+                    div#contenido > form#busquedaDepartamentos > div#parametrosBusqueda > input[type="text"],
+                    div#contenido > form#busquedaUsuarios > div#parametrosBusqueda > input[type="text"] {
                         padding: 8px;
                         border-radius: 8px;
                         border: 1px solid var(--fondo3);
@@ -255,6 +289,14 @@ body {
                 height: 28px;
                 width: 28px;
             }
+
+
+input.borrado {
+    background-color: var(--rojo);
+}
+input.borrado:hover {
+    background-color: var(--rojoC);
+}
 /*
 header {
     min-height: 10vh;

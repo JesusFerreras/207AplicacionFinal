@@ -22,7 +22,7 @@
         private $volumenDeNegocio;
         
         /** @var  DateTime  $fechaBajaDepartamento  Fecha de baja del departamento */
-        private $fechaBajaDepartamento = null;
+        private $fechaBajaDepartamento;
         
         
         /**

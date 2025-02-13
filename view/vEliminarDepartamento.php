@@ -16,7 +16,7 @@
         <label for="fechaBajaDepartamento">Fecha de baja</label>
         <input type="datetime-local" id="fechaBajaDepartamento" name="fechaBajaDepartamento" <?php print(is_null($datosDepartamento['fechaBajaDepartamento'])? '' : 'value="'.date_format($datosDepartamento['fechaBajaDepartamento'], 'Y-m-d\TH:i').'"'); ?> disabled>
         <div>
-            <input type="submit" id="eliminarDepartamento" name="eliminarDepartamento" value="Eliminar">
+            <input type="submit" id="eliminarDepartamento" name="eliminarDepartamento" value="Eliminar" class="borrado">
             <input type="submit" id="volver" name="volver" value="Volver">
         </div>
     </form>

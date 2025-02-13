@@ -2,7 +2,7 @@
     <h1>Aplicación Final</h1>
     <button id="cambioTema">&#x25D1;</button>
     <form action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
-        <input type="submit" id="miCuenta" name="miCuenta" value="Mi Cuenta">
+        <input type="image" src="<?php print(is_null($datosUsuario['imagenUsuario'])? 'webroot/images/imagenUsuarioBase.png' : 'data:image/jpeg;charset=utf8;base64,'.base64_encode(stripslashes($datosUsuario['imagenUsuario']))); ?>" alt="Mi Cuenta" id="miCuenta" name="miCuenta" > 
         <input type="submit" id="cerrarSesion" name="cerrarSesion" value="Cerrar Sesión">
     </form>
 </header>
@@ -11,6 +11,7 @@
         <input type="submit" id="detalle" name="detalle" value="Detalle">
         <input type="submit" id="error" name="error" value="Error">
         <input type="submit" id="mtoDepartamentos" name="mtoDepartamentos" value="Mantenimiento de Departamentos">
+        <?php print(($datosUsuario['perfil'] == 'administrador')? '<input type="submit" id="mtoUsuarios" name="mtoUsuarios" value="Mantenimiento de Usuarios">' : ''); ?>
         <input type="submit" id="rest" name="rest" value="REST">
     </form>
     <div id="contenido">

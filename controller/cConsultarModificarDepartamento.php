@@ -1,4 +1,10 @@
 <?php
+    if (!isset($_SESSION['usuarioDAW207AplicacionFinal'])) {
+        $_SESSION['paginaEnCurso'] = 'login';
+        header('Location: index.php');
+        exit();
+    }
+    
     if (isset($_REQUEST['volver'])) {
         unset($_SESSION['codDepartamentoEnCurso']);
         $_SESSION['paginaEnCurso'] = 'mtoDepartamentos';
@@ -22,7 +28,7 @@
         }
         
         if ($formularioValido) {
-            $departamento = DepartamentoPDO::modificaDepartamento($_SESSION['codDepartamentoEnCurso'], $_REQUEST['descDepartamento'], $_REQUEST['volumenDeNegocio']);
+            $departamento = DepartamentoPDO::modificarDepartamento($_SESSION['codDepartamentoEnCurso'], $_REQUEST['descDepartamento'], $_REQUEST['volumenDeNegocio']);
 
             unset($_SESSION['codDepartamentoEnCurso']);
             $_SESSION['paginaEnCurso'] = 'mtoDepartamentos';
@@ -31,7 +37,7 @@
         }
     }
 
-    $datosDepartamento = DepartamentoPDO::buscaDepartamentoPorCod($_SESSION['codDepartamentoEnCurso'])->getArrayDatos();
+    $datosDepartamento = DepartamentoPDO::buscarDepartamentoPorCod($_SESSION['codDepartamentoEnCurso'])->getArrayDatos();
     
     require_once $view['layout'];
 ?>

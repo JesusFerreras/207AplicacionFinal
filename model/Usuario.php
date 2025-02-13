@@ -30,7 +30,7 @@
         /** @var  string  $perfil  Perfil del usuario, puede ser 'administrador' o 'usuario' */
         private $perfil;
         
-        /** @var    $imagenUsuario  Imagen del usuario */
+        /** @var  string  $imagenUsuario  Imagen del usuario */
         private $imagenUsuario;
         
         /** @var    $listaOpinionesUsuario  Lista con las opiniones del usuario */
@@ -49,7 +49,7 @@
          * @param  DateTime  $fechaHoraUltimaConexion          Fecha y hora a la que se ha conectado el usuario
          * @param  DateTime  $fechaHoraUltimaConexionAnterior  Fecha y hora a la que se conectó el usuario la vez anterior
          * @param  string    $perfil                           Perfil del usuario
-         * @param            $imagenUsuario                    Imagen del usuario
+         * @param  string    $imagenUsuario                    Imagen del usuario
          * @param            $listaOpinionesUsuario            Lista de opiniones del usuario
          */
         public function __construct($codUsuario, $password, $descUsuario, $numConexiones, $fechaHoraUltimaConexion, $fechaHoraUltimaConexionAnterior, $perfil, $imagenUsuario, $listaOpinionesUsuario) {
@@ -146,7 +146,7 @@
          * 
          * Devuelve la imagen del usuario
          * 
-         * @return    Imagen del usuario
+         * @return  string  Imagen del usuario
          */
         public function getImagenUsuario() {
             return $this->imagenUsuario;
@@ -256,7 +256,7 @@
          * 
          * Sustituye la lista de opiniones del usuario por la indicada
          * 
-         * @param    $listaOpinionesUsuario  Lista de opiniones del usuario
+         * @param  string  $listaOpinionesUsuario  Lista de opiniones del usuario
          */
         public function setListaOpinionesUsuario($listaOpinionesUsuario): void {
             $this->listaOpinionesUsuario = $listaOpinionesUsuario;

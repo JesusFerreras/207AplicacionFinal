@@ -281,15 +281,15 @@ Search.appendIndex(
             "summary": "Clase",
             "url": "classes/CuestionPDO.html"
         },                {
-            "fqsen": "\\CuestionPDO\u003A\u003AbuscaCuestiones\u0028\u0029",
-            "name": "buscaCuestiones",
+            "fqsen": "\\CuestionPDO\u003A\u003AbuscarCuestiones\u0028\u0029",
+            "name": "buscarCuestiones",
             "summary": "Funci\u00F3n",
-            "url": "classes/CuestionPDO.html#method_buscaCuestiones"
+            "url": "classes/CuestionPDO.html#method_buscarCuestiones"
         },                {
-            "fqsen": "\\CuestionPDO\u003A\u003AbuscaCuestionPorCodigo\u0028\u0029",
-            "name": "buscaCuestionPorCodigo",
+            "fqsen": "\\CuestionPDO\u003A\u003AbuscarCuestionPorCodigo\u0028\u0029",
+            "name": "buscarCuestionPorCodigo",
             "summary": "Funci\u00F3n",
-            "url": "classes/CuestionPDO.html#method_buscaCuestionPorCodigo"
+            "url": "classes/CuestionPDO.html#method_buscarCuestionPorCodigo"
         },                {
             "fqsen": "\\CuestionPDO\u003A\u003AaltaCuestion\u0028\u0029",
             "name": "altaCuestion",
@@ -301,15 +301,15 @@ Search.appendIndex(
             "summary": "Funci\u00F3n",
             "url": "classes/CuestionPDO.html#method_bajaFisicaCuestion"
         },                {
-            "fqsen": "\\CuestionPDO\u003A\u003AmodificaCuestion\u0028\u0029",
-            "name": "modificaCuestion",
+            "fqsen": "\\CuestionPDO\u003A\u003AmodificarCuestion\u0028\u0029",
+            "name": "modificarCuestion",
             "summary": "Funci\u00F3n",
-            "url": "classes/CuestionPDO.html#method_modificaCuestion"
+            "url": "classes/CuestionPDO.html#method_modificarCuestion"
         },                {
-            "fqsen": "\\CuestionPDO\u003A\u003AsubeCuestion\u0028\u0029",
-            "name": "subeCuestion",
+            "fqsen": "\\CuestionPDO\u003A\u003AsubirCuestion\u0028\u0029",
+            "name": "subirCuestion",
             "summary": "Funci\u00F3n",
-            "url": "classes/CuestionPDO.html#method_subeCuestion"
+            "url": "classes/CuestionPDO.html#method_subirCuestion"
         },                {
             "fqsen": "\\CuestionPDO\u003A\u003AbajaCuestion\u0028\u0029",
             "name": "bajaCuestion",
@@ -546,15 +546,20 @@ Search.appendIndex(
             "summary": "Clase\u0020DepartamentoPDO",
             "url": "classes/DepartamentoPDO.html"
         },                {
-            "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentoPorCod\u0028\u0029",
-            "name": "buscaDepartamentoPorCod",
-            "summary": "Funci\u00F3n\u0020buscaDepartamentoPorCod",
-            "url": "classes/DepartamentoPDO.html#method_buscaDepartamentoPorCod"
+            "fqsen": "\\DepartamentoPDO\u003A\u003AbuscarDepartamentoPorCod\u0028\u0029",
+            "name": "buscarDepartamentoPorCod",
+            "summary": "Funci\u00F3n\u0020buscarDepartamentoPorCod",
+            "url": "classes/DepartamentoPDO.html#method_buscarDepartamentoPorCod"
         },                {
-            "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentosPorDesc\u0028\u0029",
-            "name": "buscaDepartamentosPorDesc",
-            "summary": "Funci\u00F3n\u0020buscaDepartamentosPorDesc",
-            "url": "classes/DepartamentoPDO.html#method_buscaDepartamentosPorDesc"
+            "fqsen": "\\DepartamentoPDO\u003A\u003AbuscarDepartamentosPorDesc\u0028\u0029",
+            "name": "buscarDepartamentosPorDesc",
+            "summary": "Funci\u00F3n\u0020buscarDepartamentosPorDesc",
+            "url": "classes/DepartamentoPDO.html#method_buscarDepartamentosPorDesc"
+        },                {
+            "fqsen": "\\DepartamentoPDO\u003A\u003AbuscarDepartamentosPorDescYEstado\u0028\u0029",
+            "name": "buscarDepartamentosPorDescYEstado",
+            "summary": "Funci\u00F3n\u0020buscarDepartamentosPorDescYEstado",
+            "url": "classes/DepartamentoPDO.html#method_buscarDepartamentosPorDescYEstado"
         },                {
             "fqsen": "\\DepartamentoPDO\u003A\u003AaltaDepartamento\u0028\u0029",
             "name": "altaDepartamento",
@@ -571,20 +576,25 @@ Search.appendIndex(
             "summary": "Funci\u00F3n\u0020bajaLogicaDepartamento",
             "url": "classes/DepartamentoPDO.html#method_bajaLogicaDepartamento"
         },                {
-            "fqsen": "\\DepartamentoPDO\u003A\u003AmodificaDepartamento\u0028\u0029",
-            "name": "modificaDepartamento",
-            "summary": "Funci\u00F3n\u0020modificaDepartamento",
-            "url": "classes/DepartamentoPDO.html#method_modificaDepartamento"
+            "fqsen": "\\DepartamentoPDO\u003A\u003AmodificarDepartamento\u0028\u0029",
+            "name": "modificarDepartamento",
+            "summary": "Funci\u00F3n\u0020modificarDepartamento",
+            "url": "classes/DepartamentoPDO.html#method_modificarDepartamento"
         },                {
-            "fqsen": "\\DepartamentoPDO\u003A\u003ArehabilitaDepartamento\u0028\u0029",
-            "name": "rehabilitaDepartamento",
-            "summary": "Funci\u00F3n\u0020rehabilitaDepartamento",
-            "url": "classes/DepartamentoPDO.html#method_rehabilitaDepartamento"
+            "fqsen": "\\DepartamentoPDO\u003A\u003ArehabilitarDepartamento\u0028\u0029",
+            "name": "rehabilitarDepartamento",
+            "summary": "Funci\u00F3n\u0020rehabilitarDepartamento",
+            "url": "classes/DepartamentoPDO.html#method_rehabilitarDepartamento"
         },                {
-            "fqsen": "\\DepartamentoPDO\u003A\u003AvalidaCodNoExiste\u0028\u0029",
-            "name": "validaCodNoExiste",
-            "summary": "Funci\u00F3n\u0020validaCodNoExiste",
-            "url": "classes/DepartamentoPDO.html#method_validaCodNoExiste"
+            "fqsen": "\\DepartamentoPDO\u003A\u003AvalidarCodNoExiste\u0028\u0029",
+            "name": "validarCodNoExiste",
+            "summary": "Funci\u00F3n\u0020validarCodNoExiste",
+            "url": "classes/DepartamentoPDO.html#method_validarCodNoExiste"
+        },                {
+            "fqsen": "\\DepartamentoPDO\u003A\u003AnumDepartamentos\u0028\u0029",
+            "name": "numDepartamentos",
+            "summary": "Funci\u00F3n\u0020numDepartamentos",
+            "url": "classes/DepartamentoPDO.html#method_numDepartamentos"
         },                {
             "fqsen": "\\FotoNasa",
             "name": "FotoNasa",
@@ -856,45 +866,50 @@ Search.appendIndex(
             "summary": "Funci\u00F3n\u0020altaUsuario",
             "url": "classes/UsuarioPDO.html#method_altaUsuario"
         },                {
-            "fqsen": "\\UsuarioPDO\u003A\u003AvalidaCodNoExiste\u0028\u0029",
-            "name": "validaCodNoExiste",
+            "fqsen": "\\UsuarioPDO\u003A\u003AvalidarCodNoExiste\u0028\u0029",
+            "name": "validarCodNoExiste",
             "summary": "Funci\u00F3n\u0020validaCodNoExiste",
-            "url": "classes/UsuarioPDO.html#method_validaCodNoExiste"
+            "url": "classes/UsuarioPDO.html#method_validarCodNoExiste"
         },                {
             "fqsen": "\\UsuarioPDO\u003A\u003AmodificarUsuario\u0028\u0029",
             "name": "modificarUsuario",
-            "summary": "Funci\u00F3n",
+            "summary": "Funci\u00F3n\u0020modificarUsuario",
             "url": "classes/UsuarioPDO.html#method_modificarUsuario"
         },                {
             "fqsen": "\\UsuarioPDO\u003A\u003AcambiarPassword\u0028\u0029",
             "name": "cambiarPassword",
-            "summary": "Funci\u00F3n",
+            "summary": "Funci\u00F3n\u0020cambiarPassword",
             "url": "classes/UsuarioPDO.html#method_cambiarPassword"
         },                {
             "fqsen": "\\UsuarioPDO\u003A\u003AborrarUsuario\u0028\u0029",
             "name": "borrarUsuario",
-            "summary": "Funci\u00F3n",
+            "summary": "Funci\u00F3n\u0020borrarUsuario",
             "url": "classes/UsuarioPDO.html#method_borrarUsuario"
         },                {
-            "fqsen": "\\UsuarioPDO\u003A\u003AbuscaUsuariosPorDesc\u0028\u0029",
-            "name": "buscaUsuariosPorDesc",
-            "summary": "Funci\u00F3n",
-            "url": "classes/UsuarioPDO.html#method_buscaUsuariosPorDesc"
+            "fqsen": "\\UsuarioPDO\u003A\u003AbuscarUsuariosPorDesc\u0028\u0029",
+            "name": "buscarUsuariosPorDesc",
+            "summary": "Funci\u00F3n\u0020buscarUsuariosPorDesc",
+            "url": "classes/UsuarioPDO.html#method_buscarUsuariosPorDesc"
         },                {
-            "fqsen": "\\UsuarioPDO\u003A\u003AcreaOpinion\u0028\u0029",
-            "name": "creaOpinion",
-            "summary": "Funci\u00F3n",
-            "url": "classes/UsuarioPDO.html#method_creaOpinion"
+            "fqsen": "\\UsuarioPDO\u003A\u003AnumUsuarios\u0028\u0029",
+            "name": "numUsuarios",
+            "summary": "Funci\u00F3n\u0020numUsuarios",
+            "url": "classes/UsuarioPDO.html#method_numUsuarios"
         },                {
-            "fqsen": "\\UsuarioPDO\u003A\u003AmodificaOpinion\u0028\u0029",
-            "name": "modificaOpinion",
+            "fqsen": "\\UsuarioPDO\u003A\u003AcrearOpinion\u0028\u0029",
+            "name": "crearOpinion",
             "summary": "Funci\u00F3n",
-            "url": "classes/UsuarioPDO.html#method_modificaOpinion"
+            "url": "classes/UsuarioPDO.html#method_crearOpinion"
         },                {
-            "fqsen": "\\UsuarioPDO\u003A\u003AborraOpinion\u0028\u0029",
-            "name": "borraOpinion",
+            "fqsen": "\\UsuarioPDO\u003A\u003AmodificarOpinion\u0028\u0029",
+            "name": "modificarOpinion",
             "summary": "Funci\u00F3n",
-            "url": "classes/UsuarioPDO.html#method_borraOpinion"
+            "url": "classes/UsuarioPDO.html#method_modificarOpinion"
+        },                {
+            "fqsen": "\\UsuarioPDO\u003A\u003AborrarOpinion\u0028\u0029",
+            "name": "borrarOpinion",
+            "summary": "Funci\u00F3n",
+            "url": "classes/UsuarioPDO.html#method_borrarOpinion"
         },                {
             "fqsen": "\\UsuarioPDO\u003A\u003AbuscarOpinionesUsuario\u0028\u0029",
             "name": "buscarOpinionesUsuario",

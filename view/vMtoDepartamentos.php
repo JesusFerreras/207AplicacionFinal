@@ -12,16 +12,17 @@
         <input type="submit" id="importarDepartamentos" name="importarDepartamentos" value="Importar departamentos">
     </form>
     <div id="contenido">
+        <h2>Mantenimiento de Departamentos</h2>
         <form id="busquedaDepartamentos" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
             <div id="parametrosBusqueda">
                 <label for="descDepartamento">Descripción</label>
-                <input type="text" id="descDepartamento" name="descDepartamento" <?php print(isset($_SESSION['descDepartamento'])? "value=\"{$_SESSION['descDepartamento']}\"" : ''); ?>>
+                <input type="text" id="descDepartamento" name="descDepartamento" value="<?php print($_SESSION['descDepartamento']); ?>">
                 <div id="botonesEstado">
-                    <input type="radio" id="estadoTodos" name="estadoDepartamento" value="estadoTodos" <?php print((!isset($_SESSION['estadoDepartamento']) || $_SESSION['estadoDepartamento']=='estadoTodos')? 'checked' : ''); ?>>
+                    <input type="radio" id="estadoTodos" name="estadoDepartamento" value="estadoTodos" <?php print($_SESSION['estadoDepartamento'] == 2? 'checked' : ''); ?>>
                     <label for="estadoTodos">Todos</label>
-                    <input type="radio" id="estadoBaja" name="estadoDepartamento" value="estadoBaja" <?php print((isset($_SESSION['estadoDepartamento']) && $_SESSION['estadoDepartamento']=='estadoBaja')? 'checked' : ''); ?>>
+                    <input type="radio" id="estadoBaja" name="estadoDepartamento" value="estadoBaja" <?php print($_SESSION['estadoDepartamento'] == 0? 'checked' : ''); ?>>
                     <label for="estadoBaja">Dados de baja</label>
-                    <input type="radio" id="estadoAlta" name="estadoDepartamento" value="estadoAlta" <?php print((isset($_SESSION['estadoDepartamento']) && $_SESSION['estadoDepartamento']=='estadoAlta')? 'checked' : ''); ?>>
+                    <input type="radio" id="estadoAlta" name="estadoDepartamento" value="estadoAlta" <?php print($_SESSION['estadoDepartamento'] == 1? 'checked' : ''); ?>>
                     <label for="estadoAlta">En activo</label>
                 </div>
             </div>
@@ -62,14 +63,12 @@
                 }
             ?>
         </table>
-        <!--
         <form id="paginaDepartamentos" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
-            <input type="submit" id="paginaPrimera" name="paginaPrimera" value="|&lt;">
-            <input type="submit" id="paginaSiguiente" name="paginaSiguiente" value="&lt;">
+            <input type="submit" id="paginaPrimera" name="paginaPrimera" value="|&lt;" <?php print(($_SESSION['numPagina'] == 0)? 'disabled' : ''); ?>>
+            <input type="submit" id="paginaAnterior" name="paginaAnterior" value="&lt;" <?php print(($_SESSION['numPagina'] == 0)? 'disabled' : ''); ?>>
             <?php print('<p id="numPaginacion">' . ($_SESSION['numPagina']+1) . '/' . $numPaginas . '</p>'); ?>
-            <input type="submit" id="paginaAnterior" name="paginaAnterior" value="&gt;">
-            <input type="submit" id="paginaUltima" name="paginaUltima" value="&gt;|">
+            <input type="submit" id="paginaSiguiente" name="paginaSiguiente" value="&gt;" <?php print(($_SESSION['numPagina'] == $numPaginas-1)? 'disabled' : ''); ?>>
+            <input type="submit" id="paginaUltima" name="paginaUltima" value="&gt;|" <?php print(($_SESSION['numPagina'] == $numPaginas-1)? 'disabled' : ''); ?>>
         </form>
-        -->
     </div>
 </main>

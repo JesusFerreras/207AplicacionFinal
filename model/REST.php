@@ -10,10 +10,10 @@
      */
     class REST {
         /** @var  string  apikeyNasa  Clave para acceder a la API de la NASA */
-        const apikeyNASA = 'G0efsc0nhZCxCJUliziDhKh5tUhrWKbHbPfB9oTa';
+        private const apikeyNASA = 'G0efsc0nhZCxCJUliziDhKh5tUhrWKbHbPfB9oTa';
         
         /** @var  string  apikeyMeteosource  Clave para acceder a la API de Meteosource */
-        const apikeyMeteosource = '8bf1d752b5msha306d71de345c17p1e95e0jsn7ceac53ed12f';
+        private const apikeyMeteosource = '8bf1d752b5msha306d71de345c17p1e95e0jsn7ceac53ed12f';
 
         
         /**
@@ -37,7 +37,7 @@
                     return null;
                 }
             } catch (Exception $ex) {
-                $_SESSION['error'] = new ErrorApp($ex->getCode(), $ex->getMessage(), $ex->getFile(), $ex->getLine(), $_SESSION['paginaEnCurso']);
+                $_SESSION['error'] = new AppError($ex->getCode(), $ex->getMessage(), $ex->getFile(), $ex->getLine(), $_SESSION['paginaEnCurso']);
                 $_SESSION['paginaEnCurso'] = 'error';
                 unset($_SESSION['fechaNasa']);
 
@@ -83,7 +83,7 @@
                     return null;
                 }
             } catch (Exception $ex) {
-                $_SESSION['error'] = new ErrorApp($ex->getCode(), $ex->getMessage(), $ex->getFile(), $ex->getLine(), $_SESSION['paginaEnCurso']);
+                $_SESSION['error'] = new AppError($ex->getCode(), $ex->getMessage(), $ex->getFile(), $ex->getLine(), $_SESSION['paginaEnCurso']);
                 $_SESSION['paginaEnCurso'] = 'error';
                 unset($_SESSION['ubicacionTiempo']);
 

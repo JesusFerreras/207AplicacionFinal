@@ -10,7 +10,7 @@ create table if not exists DB207AplicacionFinal.T01_Usuario(
     T01_NumConexiones int default 0 not null,
     T01_FechaHoraUltimaConexion datetime default now() not null,
     T01_Perfil enum('usuario', 'administrador') not null,
-    T01_ImagenUsuario blob
+    T01_ImagenUsuario longblob
 )engine=innodb;
 
 create table if not exists DB207AplicacionFinal.T02_Departamento(
