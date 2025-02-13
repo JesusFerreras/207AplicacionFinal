@@ -4,7 +4,7 @@
 </header>
 <main>
     <form id="datos" action="<?php print($_SERVER['PHP_SELF']); ?>" method="post" novalidate>
-        <h2>Borrar Cuenta</h2>
+        <h2>Eliminar Usuario</h2>
         <label for="codUsuario">Código</label>
         <input type="text" id="codUsuario" name="codUsuario" value="<?php print($datosUsuario['codUsuario']) ?>" disabled>
         <label for="descUsuario">Descripción</label>

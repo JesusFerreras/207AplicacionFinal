@@ -45,9 +45,19 @@
                 <td>Guarda el código del departamento con el que se va a operar (modificar y eliminar)</td>
             </tr>
             <tr>
+                <th>$_SESSION['descUsuario']</th>
+                <td>string</td>
+                <td>Guarda la descripción del usuario a buscar en la página de mantenimiento de usuarios</td>
+            </tr>
+            <tr>
+                <th>$_SESSION['codUsuarioEnCurso']</th>
+                <td>string</td>
+                <td>Guarda el código del usuario con el que se va a operar (modificar y eliminar)</td>
+            </tr>
+            <tr>
                 <th>$_SESSION['numPagina']</th>
                 <td>int</td>
-                <td>Guarda el número de página en la tabla de departamentos</td>
+                <td>Guarda el número de página en la tabla de departamentos o usuarios</td>
             </tr>
             <tr>
                 <th>$_SESSION['fechaNasa']</th>

@@ -17,7 +17,7 @@
         $mensajesError = [
             'codUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['codUsuario'], 255, 1, 1) . UsuarioPDO::validarCodNoExiste($_REQUEST['codUsuario'])? '' : 'El usuario ya existe',
             'descUsuario' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['descUsuario'], 255, 1, 1),
-            'password' => ''
+            'password' => validacionFormularios::comprobarAlfaNumerico($_REQUEST['descUsuario'], 255, 1, 1)
         ];
         if (is_uploaded_file($_FILES['imagenUsuario']['tmp_name'])){
             $mensajesError['imagenUsuario'] = validacionFormularios::validarNombreArchivo($_FILES['imagenUsuario']['name'], ['jpg', 'png']);

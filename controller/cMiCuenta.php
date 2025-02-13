@@ -11,6 +11,18 @@
         exit();
     }
     
+    if (isset($_REQUEST['cambiarPassword'])) {
+        $_SESSION['paginaEnCurso'] = 'cambiarPassword';
+        header('Location: index.php');
+        exit();
+    }
+    
+    if (isset($_REQUEST['borrar'])) {
+        $_SESSION['paginaEnCurso'] = 'borrarCuenta';
+        header('Location: index.php');
+        exit();
+    }
+    
     if (isset($_REQUEST['modificar'])) {
         $formularioValido = true;
         

@@ -232,14 +232,31 @@
         /**
          * Función cambiarPassword
          * 
-         * Función que modifica la contraseña del usuario por la indicada
+         * Función que modifica la contraseña del usuario por un cifrado de la indicada
          * 
-         * @param    $  
+         * @param  Usuario  $usuario   Usuario cuya contraseña se va a modificar
+         * @param  string   $password  Contraseña sin cifrar
          * 
          * @return  Usuario  Usuario ya modificado
          */
-        public static function cambiarPassword() {
-
+        public static function cambiarPassword($usuario, $password) {
+            $usuario->setPassword(hash('sha256', $password . $usuario->getCodUsuario()));
+            
+            $actualizacion = <<<FIN
+                update T01_Usuario
+                    set T01_Password = sha2(:contrasena, 256)
+                    where T01_CodUsuario = :codUsuario
+                ;
+            FIN;
+            
+            $parametros = [
+                ':codUsuario' => $usuario->getCodUsuario(),
+                ':contrasena' => $usuario->getCodUsuario() . $password
+            ];
+                    
+            DBPDO::ejecutarConsulta($actualizacion, $parametros);
+                    
+            return $usuario;
         }
         
         /**

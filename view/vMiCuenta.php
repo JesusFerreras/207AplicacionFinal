@@ -29,6 +29,7 @@
         <?php print(isset($mensajesError['imagenUsuario'])? "<p class=\"error\">{$mensajesError['imagenUsuario']}</p>" : ''); ?>
         <div>
             <input type="submit" id="modificar" name="modificar" value="Modificar">
+            <input type="submit" id="borrar" name="borrar" value="Borrar" class="borrado">
             <input type="submit" id="volver" name="volver" value="Volver">
         </div>
     </form>

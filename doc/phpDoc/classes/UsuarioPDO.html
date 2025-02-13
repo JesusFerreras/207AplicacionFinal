@@ -186,7 +186,7 @@
 <dd>Función altaUsuario</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/UsuarioPDO.html#method_borraOpinion">borraOpinion()</a>
+    <a class="" href="classes/UsuarioPDO.html#method_borrarOpinion">borrarOpinion()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
@@ -197,7 +197,7 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Función</dd>
+<dd>Función borrarUsuario</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/UsuarioPDO.html#method_buscarOpinionesUsuario">buscarOpinionesUsuario()</a>
@@ -209,33 +209,33 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/UsuarioPDO.html#method_buscarUsuarioPorCod">buscarUsuarioPorCod()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a>    </span>
 </dt>
 <dd>Función buscarUsuarioPorCod</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/UsuarioPDO.html#method_buscaUsuariosPorDesc">buscaUsuariosPorDesc()</a>
+    <a class="" href="classes/UsuarioPDO.html#method_buscarUsuariosPorDesc">buscarUsuariosPorDesc()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, <a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a>&gt;    </span>
 </dt>
-<dd>Función</dd>
+<dd>Función buscarUsuariosPorDesc</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/UsuarioPDO.html#method_cambiarPassword">cambiarPassword()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a>    </span>
 </dt>
-<dd>Función</dd>
+<dd>Función cambiarPassword</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/UsuarioPDO.html#method_creaOpinion">creaOpinion()</a>
+    <a class="" href="classes/UsuarioPDO.html#method_crearOpinion">crearOpinion()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Función</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/UsuarioPDO.html#method_modificaOpinion">modificaOpinion()</a>
+    <a class="" href="classes/UsuarioPDO.html#method_modificarOpinion">modificarOpinion()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
@@ -244,9 +244,16 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/UsuarioPDO.html#method_modificarUsuario">modificarUsuario()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a>    </span>
 </dt>
-<dd>Función</dd>
+<dd>Función modificarUsuario</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/UsuarioPDO.html#method_numUsuarios">numUsuarios()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Función numUsuarios</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/UsuarioPDO.html#method_registrarUltimaConexion">registrarUltimaConexion()</a>
@@ -256,7 +263,7 @@
 <dd>Función registrarUltimaConexion</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/UsuarioPDO.html#method_validaCodNoExiste">validaCodNoExiste()</a>
+    <a class="" href="classes/UsuarioPDO.html#method_validarCodNoExiste">validarCodNoExiste()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -297,7 +304,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 
     </aside>
 
@@ -305,7 +312,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">altaUsuario</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$codUsuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$descUsuario</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$imagenUsuario</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">altaUsuario</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$codUsuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$descUsuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$imagenUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -344,10 +351,10 @@
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$imagenUsuario</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Opcional, imagen del usuario</p>
+                    <section class="phpdocumentor-description"><p>Imagen del usuario</p>
 </section>
 
             </dd>
@@ -373,15 +380,15 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_borraOpinion">
-        borraOpinion()
-        <a href="classes/UsuarioPDO.html#method_borraOpinion" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_borrarOpinion">
+        borrarOpinion()
+        <a href="classes/UsuarioPDO.html#method_borrarOpinion" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">251</span>
+    <span class="phpdocumentor-element-found-in__line">373</span>
 
     </aside>
 
@@ -389,7 +396,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">borraOpinion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">borrarOpinion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -401,7 +408,7 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/UsuarioPDO.html#method_borraOpinion#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/UsuarioPDO.html#method_borrarOpinion#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -432,38 +439,36 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">199</span>
+    <span class="phpdocumentor-element-found-in__line">269</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Función</p>
+        <p class="phpdocumentor-summary">Función borrarUsuario</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">borrarUsuario</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">borrarUsuario</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$codUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Función que</p>
+        <section class="phpdocumentor-description"><p>Función que elimina el usuario indicado</p>
 </section>
 
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/UsuarioPDO.html#method_borrarUsuario#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$codUsuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Codigo del usuario a borrar</p>
+</section>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">@return</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
+            </dd>
+            </dl>
+
+    
 
     
 
@@ -483,7 +488,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">264</span>
+    <span class="phpdocumentor-element-found-in__line">386</span>
 
     </aside>
 
@@ -542,7 +547,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buscarUsuarioPorCod</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buscarUsuarioPorCod</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$codUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -550,26 +555,32 @@
         <section class="phpdocumentor-description"><p>Función que busca un usuario por su código y lo devuelve</p>
 </section>
 
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/UsuarioPDO.html#method_buscarUsuarioPorCod#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$codUsuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Código del usuario a buscar</p>
+</section>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">@return</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
+            </dd>
+            </dl>
 
     
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Usuario con el código indicado, false si no existe</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -577,50 +588,74 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_buscaUsuariosPorDesc">
-        buscaUsuariosPorDesc()
-        <a href="classes/UsuarioPDO.html#method_buscaUsuariosPorDesc" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_buscarUsuariosPorDesc">
+        buscarUsuariosPorDesc()
+        <a href="classes/UsuarioPDO.html#method_buscarUsuariosPorDesc" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">212</span>
+    <span class="phpdocumentor-element-found-in__line">290</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Función</p>
+        <p class="phpdocumentor-summary">Función buscarUsuariosPorDesc</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buscaUsuariosPorDesc</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">buscarUsuariosPorDesc</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$descUsuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a>&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Función que</p>
+        <section class="phpdocumentor-description"><p>Función que busca los usuarios cuya descripción contenga la cadena indicada y los devuelve como array numérico</p>
 </section>
 
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/UsuarioPDO.html#method_buscaUsuariosPorDesc#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$descUsuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Descripción completa o no de los usuarios a buscar</p>
+</section>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">@return</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$limit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Número de registros que se devuelven</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Posición a partir de la cual se empiezan a contar los registros</p>
+</section>
+
+            </dd>
+            </dl>
 
     
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a>&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Array numérico con los usuarios encontrados</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -636,7 +671,73 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">186</span>
+    <span class="phpdocumentor-element-found-in__line">242</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Función cambiarPassword</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">cambiarPassword</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$usuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Función que modifica la contraseña del usuario por un cifrado de la indicada</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$usuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Usuario cuya contraseña se va a modificar</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$password</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Contraseña sin cifrar</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Usuario ya modificado</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_crearOpinion">
+        crearOpinion()
+        <a href="classes/UsuarioPDO.html#method_crearOpinion" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">347</span>
 
     </aside>
 
@@ -644,7 +745,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">cambiarPassword</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">crearOpinion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -656,7 +757,7 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/UsuarioPDO.html#method_cambiarPassword#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/UsuarioPDO.html#method_crearOpinion#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -679,15 +780,15 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_creaOpinion">
-        creaOpinion()
-        <a href="classes/UsuarioPDO.html#method_creaOpinion" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_modificarOpinion">
+        modificarOpinion()
+        <a href="classes/UsuarioPDO.html#method_modificarOpinion" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">225</span>
+    <span class="phpdocumentor-element-found-in__line">360</span>
 
     </aside>
 
@@ -695,7 +796,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">creaOpinion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">modificarOpinion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -707,58 +808,7 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/UsuarioPDO.html#method_creaOpinion#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">@return</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                    -static                    "
->
-    <h4 class="phpdocumentor-element__name" id="method_modificaOpinion">
-        modificaOpinion()
-        <a href="classes/UsuarioPDO.html#method_modificaOpinion" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">238</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Función</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">modificaOpinion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>Función que</p>
-</section>
-
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/UsuarioPDO.html#method_modificaOpinion#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/UsuarioPDO.html#method_modificarOpinion#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -789,42 +839,132 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">173</span>
+    <span class="phpdocumentor-element-found-in__line">200</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Función</p>
+        <p class="phpdocumentor-summary">Función modificarUsuario</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">modificarUsuario</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">modificarUsuario</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$usuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$descUsuario</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$imagenUsuario</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$perfil</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Función que</p>
+        <section class="phpdocumentor-description"><p>Función que modifica la descripción e imagen del usuario indicado</p>
 </section>
 
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/UsuarioPDO.html#method_modificarUsuario#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$usuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Usuario a modificar</p>
+</section>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">@return</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$descUsuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Nueva descripción del usuario</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$imagenUsuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Nueva imagen del usuario</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$perfil</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Opcional, nuevo perfil del usuario ('administrador' o 'usuario')</p>
+</section>
+
+            </dd>
+            </dl>
 
     
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/Usuario.html"><abbr title="\Usuario">Usuario</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Usuario ya modificado</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_numUsuarios">
+        numUsuarios()
+        <a href="classes/UsuarioPDO.html#method_numUsuarios" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">328</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Función numUsuarios</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">numUsuarios</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$descUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Función que devuelve el número de usuarios cuya descripción contenga la cadena indicada</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$descUsuario</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Descripción completa o no de los usuarios a buscar</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Número de usuarios con las características indicadas</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -889,15 +1029,15 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_validaCodNoExiste">
-        validaCodNoExiste()
-        <a href="classes/UsuarioPDO.html#method_validaCodNoExiste" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_validarCodNoExiste">
+        validarCodNoExiste()
+        <a href="classes/UsuarioPDO.html#method_validarCodNoExiste" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/UsuarioPDO.php"><a href="files/model-usuariopdo.html"><abbr title="model/UsuarioPDO.php">UsuarioPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">154</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
@@ -905,7 +1045,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">validaCodNoExiste</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$codUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">validarCodNoExiste</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$codUsuario</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1131,17 +1271,18 @@
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/UsuarioPDO.html#method_altaUsuario">altaUsuario()</a></li>
-                                            <li class=""><a href="classes/UsuarioPDO.html#method_borraOpinion">borraOpinion()</a></li>
+                                            <li class=""><a href="classes/UsuarioPDO.html#method_borrarOpinion">borrarOpinion()</a></li>
                                             <li class=""><a href="classes/UsuarioPDO.html#method_borrarUsuario">borrarUsuario()</a></li>
                                             <li class=""><a href="classes/UsuarioPDO.html#method_buscarOpinionesUsuario">buscarOpinionesUsuario()</a></li>
                                             <li class=""><a href="classes/UsuarioPDO.html#method_buscarUsuarioPorCod">buscarUsuarioPorCod()</a></li>
-                                            <li class=""><a href="classes/UsuarioPDO.html#method_buscaUsuariosPorDesc">buscaUsuariosPorDesc()</a></li>
+                                            <li class=""><a href="classes/UsuarioPDO.html#method_buscarUsuariosPorDesc">buscarUsuariosPorDesc()</a></li>
                                             <li class=""><a href="classes/UsuarioPDO.html#method_cambiarPassword">cambiarPassword()</a></li>
-                                            <li class=""><a href="classes/UsuarioPDO.html#method_creaOpinion">creaOpinion()</a></li>
-                                            <li class=""><a href="classes/UsuarioPDO.html#method_modificaOpinion">modificaOpinion()</a></li>
+                                            <li class=""><a href="classes/UsuarioPDO.html#method_crearOpinion">crearOpinion()</a></li>
+                                            <li class=""><a href="classes/UsuarioPDO.html#method_modificarOpinion">modificarOpinion()</a></li>
                                             <li class=""><a href="classes/UsuarioPDO.html#method_modificarUsuario">modificarUsuario()</a></li>
+                                            <li class=""><a href="classes/UsuarioPDO.html#method_numUsuarios">numUsuarios()</a></li>
                                             <li class=""><a href="classes/UsuarioPDO.html#method_registrarUltimaConexion">registrarUltimaConexion()</a></li>
-                                            <li class=""><a href="classes/UsuarioPDO.html#method_validaCodNoExiste">validaCodNoExiste()</a></li>
+                                            <li class=""><a href="classes/UsuarioPDO.html#method_validarCodNoExiste">validarCodNoExiste()</a></li>
                                             <li class=""><a href="classes/UsuarioPDO.html#method_validarUsuario">validarUsuario()</a></li>
                                     </ul>
             </li>

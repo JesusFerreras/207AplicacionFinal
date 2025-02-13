@@ -193,8 +193,7 @@ body {
                     background-color: var(--colorAcentoO);
                 }
         div#contenido {
-            padding: 8px;
-            padding-right: 32px;
+            padding: 8px 32px;
             flex: 1;
         }
             div#contenido > table {
@@ -290,6 +289,14 @@ body {
                 height: 28px;
                 width: 28px;
             }
+
+
+input.borrado {
+    background-color: var(--rojo);
+}
+input.borrado:hover {
+    background-color: var(--rojoC);
+}
 /*
 header {
     min-height: 10vh;

@@ -7,8 +7,6 @@
         <h2>Modificar Usuario</h2>
         <label for="codUsuario">Código</label>
         <input type="text" id="codUsuario" name="codUsuario" value="<?php print($datosUsuario['codUsuario']); ?>" disabled>
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" value="<?php print($datosUsuario['password']); ?>" disabled>
         <label for="descUsuario">Descripción</label>
         <input type="text" id="descUsuario" name="descUsuario" value="<?php print($datosUsuario['descUsuario']); ?>" required>
         <?php print(isset($mensajesError['descUsuario'])? "<p class=\"error\">{$mensajesError['descUsuario']}</p>" : ''); ?>
